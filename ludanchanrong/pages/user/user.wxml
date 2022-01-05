@@ -1,0 +1,66 @@
+<wxs src="../../utils/change.wxs" module="change"></wxs>
+<view class="message">
+    <view class="headimg">
+        <view>
+            <image bindtap="ChooseImage" src="{{userinfo.avatarUrl}}" />
+        </view>
+        <!-- <view>
+            <text>点击更换头像</text>
+        </view> -->
+    </view>
+    <view class="gaosi">
+        <image src="{{userinfo.avatarUrl}}" />
+    </view>
+</view>
+<view class="body">
+    <view class="margin_body">
+        <!-- <block wx:if="{{address_show}}">
+            <view class="flex body_data" bind:tap="change_user" data-type="goods">
+                <view class="flex-sub">我的收货地址</view>
+                <view class="flex-sub gengduo">
+                    <text class="cuIcon-right"></text>
+                </view>
+            </view>
+            <view class="line"></view>
+        </block> -->
+        <view class="flex body_data">
+            <view class="flex-sub">手机号</view>
+            <view class="flex-sub gengduo">{{user_data.code}}</view>
+        </view>
+        <view class="line"></view>
+        <view class="flex body_data">
+            <view class="flex-sub">姓名</view>
+            <view class="flex-sub gengduo" bind:tap="" data-type="nicheng" data-data="{{user_data.name}}">
+                {{user_data.name}}
+            </view>
+        </view>
+        <view class="line"></view>
+        <view class="flex body_data">
+            <view class="flex-sub">{{user_data.certificatesType}}</view>
+            <view class="flex-sub gengduo">{{user_data.certificatesNo}}</view>
+        </view>
+        <view class="line"></view>
+        <view class="flex body_data">
+            <view class="flex-sub">身份</view>
+            <view class="flex-sub gengduo">{{change.change(user_data.rules)}}</view>
+        </view>
+        <view class="line"></view>
+        <view class="flex body_data">
+            <view class="flex-sub">性别</view>
+            <view class="flex-sub gengduo" bind:tap="" data-type="xingbie" data-data="{{userinfo.gender}}">
+                {{userinfo.gender == 1?"男":"女"}}
+            </view>
+        </view>
+        <!-- <view class="flex body_data">
+            <text class="flex-sub">地区</text>
+            <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+                <view class="picker" wx:if="{{region[0]}}">{{region[0]}}，{{region[1]}}，{{region[2]}} ></view>
+                <view class="picker" wx:else>暂无地区 ></view>
+            </picker>
+        </view> -->
+    </view>
+</view>
+<button wx:if="{{more_role}}" class='changeBtn color' style="width:90%" bindtap='switch'>
+    切换角色
+</button>
+<button class='changeBtn' style="width:90%" bindtap='logout'>退出登录</button>

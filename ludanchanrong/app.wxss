@@ -1,0 +1,136 @@
+/**app.wxss**/
+@import "components/colorui/main.wxss";
+@import "components/colorui/icon.wxss";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+/* 横线 */
+.line {
+  margin: 0 auto;
+  width: 95%;
+  height: 1rpx;
+  background:gainsboro;
+}
+
+/* 顶部小菜单颜色 */
+.operation {
+  background-color: #ffffff;
+  /* margin-top: 10rpx; */
+  padding: 5rpx;
+}
+.nav .cu-item {
+  color: #1e90ff;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 5px;
+}
+.nav .conduct {
+  background-color: #1e90ff;
+  color: white;
+  /* width: 150rpx; */
+}
+
+
+.limitLine1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Firefox */
+  display: -moz-box;
+  -moz-line-clamp: 1;
+  -moz-box-orient: vertical;
+  /* Safari、Opera、Chrome */
+  display: -webkit-box;
+  /* 盒子垂直对齐 */
+  -webkit-box-orient: vertical;
+  /* 两行 */
+  -webkit-line-clamp: 1;
+}
+.limitLine2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Firefox */
+  display: -moz-box;
+  -moz-line-clamp: 1;
+  -moz-box-orient: vertical;
+  /* Safari、Opera、Chrome */
+  display: -webkit-box;
+  /* 盒子垂直对齐 */
+  -webkit-box-orient: vertical;
+  /* 两行 */
+  -webkit-line-clamp: 2;
+}
+.limitLine3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Firefox */
+  display: -moz-box;
+  -moz-line-clamp: 1;
+  -moz-box-orient: vertical;
+  /* Safari、Opera、Chrome */
+  display: -webkit-box;
+  /* 盒子垂直对齐 */
+  -webkit-box-orient: vertical;
+  /* 两行 */
+  -webkit-line-clamp: 3;
+}
+
+
+
+
+
+/* 订单样式 */
+.pastbuy_img image{
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+.pastbuy_data{
+  text-align: right;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.theorder_title{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.clarify_top{
+  font-size: 24rpx;
+}
+.clarify_top .cu-btn{
+  width: 200rpx;
+}
+.justify-end .cu-btn {
+  width: 150rpx;
+  margin-right: 20rpx;
+}
+.goods_datas{
+  text-align: left;
+}
+.goods_data{
+  margin: 20rpx 0;
+}
+.goods_data picker{
+  border: 1rpx solid gainsboro;
+  padding: 10rpx;
+  margin-left: -10rpx;
+}
+
+
+.theorder_logo{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 8rpx auto;
+}
+
+/* .bottom {
+  height: 60rpx;
+} */

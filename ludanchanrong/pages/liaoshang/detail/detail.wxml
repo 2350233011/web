@@ -1,0 +1,115 @@
+<view class="detail_top">
+    <view class="flex">
+        <view class="flex-sub detail_top_data">
+            <view class="detail_top_data1">可用额度</view>
+            <view class="detail_top_data2">613,262</view>
+        </view>
+        <view class="flex-sub detail_top_data">
+            <view class="detail_top_data1">已用额度</view>
+            <view class="detail_top_data2">287,739</view>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="flex detaile_top_all">
+        <view class="flex-sub">
+            总计：
+            <text>900,000</text>
+        </view>
+        <view class="flex-sub">
+            最近交易日期：
+            <text>2021/4/9</text>
+        </view>
+    </view>
+</view>
+<view class="detail_source">
+    <view class="flex _title">
+        <view class="flex-treble">贷款来源明细</view>
+        <view class="flex-sub gengduo">
+            <!-- <text>更多 ></text> -->
+        </view>
+    </view>
+    <view class="margin_detail">
+        <view class="flex detail_data">
+            <text class="flex-sub">贷款人</text>
+            <text class="flex-sub">贷款金额</text>
+            <text class="flex-sub">已用金额</text>
+            <text class="flex-sub">剩余金额</text>
+        </view>
+        <view class="flex detail_data1">
+            <text class="flex-sub">养殖户A</text>
+            <text class="flex-sub">300,000</text>
+            <text class="flex-sub">287,739</text>
+            <text class="flex-sub">12.261</text>
+        </view>
+        <view class="flex detail_data1">
+            <text class="flex-sub">养殖户B</text>
+            <text class="flex-sub">300,000</text>
+            <text class="flex-sub">0</text>
+            <text class="flex-sub">300,000</text>
+        </view>
+        <view class="flex detail_data1">
+            <text class="flex-sub">养殖户C</text>
+            <text class="flex-sub">300,000</text>
+            <text class="flex-sub">0</text>
+            <text class="flex-sub">300,000</text>
+        </view>
+    </view>
+</view>
+<view class="detail_deal">
+    <view class="flex _title">
+        <view class="flex-treble">近期交易明细</view>
+        <view class="flex-sub gengduo">
+            <!-- <text>更多 ></text> -->
+        </view>
+    </view>
+    <view class="margin_deal">
+        <view class="detail_deal_out">
+            <view class="deal_out_title">支出</view>
+            <view class="flex detail_deal_data" bind:tap="to_theorder_inputs">
+                <view class="flex-sub detail_deal_data1">
+                    <text class="deal_data1">饲料购买 | 投入品商A</text>
+                    <text class="deal_data2">2021-04-09</text>
+                </view>
+                <view class="flex-sub detail_deal_data1 gengduo">
+                    <text class="deal_data1 text_color">-5342元</text>
+                    <text class="deal_data2">支出-投入品购买</text>
+                </view>
+            </view>
+            <view class="flex detail_deal_data" bind:tap="to_theorder_inputs">
+                <view class="flex-sub detail_deal_data1">
+                    <text class="deal_data1">饲料购买 | 投入品商B</text>
+                    <text class="deal_data2">2021-04-09</text>
+                </view>
+                <view class="flex-sub detail_deal_data1 gengduo">
+                    <text class="deal_data1 text_color">-5342元</text>
+                    <text class="deal_data2">支出-投入品购买</text>
+                </view>
+            </view>
+        </view>
+        <view class="detail_deal_in">
+            <view class="deal_out_title">收入</view>
+            <view class="flex detail_deal_data" bind:tap="to_clarify">
+                <view class="flex-sub detail_deal_data1">
+                    <text class="deal_data1">货品结算 | 屠宰厂A</text>
+                    <text class="deal_data2">2021-04-09</text>
+                </view>
+                <view class="flex-sub detail_deal_data1 gengduo">
+                    <text class="deal_data1 text_color2">+30,000元</text>
+                    <text class="deal_data2">收入-货品结算</text>
+                </view>
+            </view>
+            <view class="flex detail_deal_data" bind:tap="to_clarify">
+                <view class="flex-sub detail_deal_data1">
+                    <text class="deal_data1">货品结算 | 屠宰厂A</text>
+                    <text class="deal_data2">2021-04-09</text>
+                </view>
+                <view class="flex-sub detail_deal_data1 gengduo">
+                    <text class="deal_data1 text_color2">+30,000元</text>
+                    <text class="deal_data2">收入-货品结算</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="bottom"></view>
+<view style="height:100rpx;"></view>

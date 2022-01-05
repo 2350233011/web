@@ -1,0 +1,55 @@
+<view class="data_top">
+    <view class="flex padding-sm justify-between clarify_top">
+        <view class="radius">2021-04-10</view>
+        <view class="radius">订单号:1234567890</view>
+    </view>
+    <view class="line"></view>
+    <view class="flex padding pastbuy">
+        <view class="flex-sub pastbuy_img">
+            <image src="../../../images/liaoshang/ji.png" />
+        </view>
+        <view class="flex-twice">活体肉鸡</view>
+        <view class="flex-twice pastbuy_data">
+            <view>
+                定单金额:
+                <text>￥900,000</text>
+            </view>
+            <view>X 2000</view>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="clarify_bottom padding">
+        <view class="flex">
+            <view class="flex-sub">订单收入</view>
+            <view class="flex-treble text_red">+900,000</view>
+        </view>
+        <view class="flex">
+            <view class="flex-sub">还款金额</view>
+            <view class="flex-treble text_green">-300,000</view>
+        </view>
+        <view class="flex">
+            <view class="flex-sub">利息费用</view>
+            <view class="flex-treble text_green">-3000</view>
+        </view>
+        <view class="flex">
+            <view class="flex-sub">投入支出</view>
+            <view class="flex-treble text_green">-100,000</view>
+        </view>
+        <view class="flex">
+            <view class="flex-sub">料商分成</view>
+            <view class="flex-treble text_green">-100,000</view>
+        </view>
+        <view class="flex">
+            <view class="flex-sub">手续费用</view>
+            <view class="flex-treble text_green">-800</view>
+        </view>
+        <view class="flex">
+            <view class="flex-sub">收款时间</view>
+            <view class="flex-treble">2021-04-10</view>
+        </view>
+        <view class="flex">
+            <view class="flex-sub">实际收款</view>
+            <view class="flex-treble text_green">+496,200</view>
+        </view>
+    </view>
+</view>

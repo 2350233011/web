@@ -1,0 +1,28 @@
+<wxs module="util">
+    function cut(arr,val) {
+        if (arr) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == val) {
+                    return i
+                }
+            }
+            return -1
+        }
+    }
+    module.exports.cut = cut;
+</wxs>
+<view class="body_top">
+    <text class="title">选择身份</text>
+    <text class="remind">点击身份进入相应页面</text>
+</view>
+<view class="body">
+    <block wx:for="{{identity}}" wx:key="id">
+        <view wx:if="{{util.cut(isshow,item.type) > -1}}" class="content" bindtap="to_index" data-type="{{item.type}}">
+            <view style="width:90%; display: flex;align-items: center;">
+                <image class="content_img" src="{{item.img}}" />
+                <text class="context_text">{{item.val}}</text>
+            </view>
+            <text class="cuIcon-pullright icon_right"></text>
+        </view>
+    </block>
+</view>

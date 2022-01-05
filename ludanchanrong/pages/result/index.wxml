@@ -1,0 +1,4 @@
+<view class='changeInfo'>{{title}}</view>
+<view class="bg-white flex-sub radius shadow-lg loading">
+  <image src="{{src}}" mode="aspectFit" class="gif-white response" />
+</view>

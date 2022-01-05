@@ -1,0 +1,90 @@
+<wxs src="../../utils/change.wxs" module="app"></wxs>
+<wxs module="util">
+    var cut = function(str,num) {
+        if (str.length > num){
+            return str.substring(0, num) + "..."
+        }else{
+            return str
+        }
+    }
+    module.exports.cut = cut;
+</wxs>
+<view class="body">
+    <!-- <view class="body_top" wx:if="{{order_info.state == 1}}"> -->
+    <view class="body_top">
+        <view class="data_body">
+            <view class="flex pastbuy">
+                <view class="goods_img flex-sub">
+                    <image src="../../images/liaoshang/weizhi.png" />
+                </view>
+                <view class="flex-treble">
+                    <view class="goods_user">
+                        <view class="user_name text-xl">{{order_info.consigneeName}}</view>
+                        <view class="user_code text-sm text-grey">
+                            {{order_info.consigneeMobile}}
+                        </view>
+                    </view>
+                    <view class="goods_data text-sm limitLine2 text-left">
+                        {{order_info.consigneeAddress}}
+                    </view>
+                </view>
+                <!-- <view style="width:60rpx" class="flex-sub update_goods">
+                    <view bindtap="getgoods" data-target="bottomModal">修改</view>
+                </view> -->
+            </view>
+        </view>
+    </view>
+    <view class="data_top">
+        <view class="data_body">
+            <view class="flex padding-sm justify-between clarify_top">
+                <view class="radius">
+                    <text class="cuIcon-shop lg text-blue"></text>
+                    {{order_info.shopName}}
+                </view>
+                <view class="radius">订单状态:{{app.toFind(states,"id",order_info.state,"name")}}</view>
+            </view>
+            <view class="line"></view>
+            <view class="flex padding pastbuy">
+                <view class="flex-sub pastbuy_img">
+                    <image src="{{order_info.itemPic}}" />
+                </view>
+                <view class="flex-twice theorder_title">
+                    <view class="limitLine2">{{order_info.itemName}}</view>
+                    <view class="text-gray text-sm">{{order_info.skuName}}</view>
+                </view>
+                <view class="flex-twice pastbuy_data">
+                    <view>
+                        定单金额:
+                        <text>￥{{order_info.unitprice}}</text>
+                    </view>
+                    <view>
+                        定单数量:
+                        <text>X {{order_info.quantity}}</text>
+                    </view>
+                </view>
+            </view>
+            <view>
+                <view></view>
+            </view>
+            <view class="line"></view>
+            <view class="flex padding-sm justify-between clarify_top">
+                <view class="radius"></view>
+                <view class="radius">
+                    总金额￥{{order_info.allunitprice}}
+                        实付款￥
+                    <text class="text-xxl text-red">{{order_info.allunitprice}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="height:100rpx"></view>
+</view>
+<view class="inputs_but">
+    <!-- <button class="cu-btn round bg-blue">取消订单</button> -->
+    <view class="cu-bar bg-white tabbar border shop" style="width:100%;">
+        <view class="action"></view>
+        <view class="action"></view>
+        <view class="action"></view>
+        <view class="bg-blue submit text-xl" bindtap="supply">发货</view>
+    </view>
+</view>

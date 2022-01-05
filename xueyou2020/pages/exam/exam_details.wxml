@@ -1,0 +1,34 @@
+<view class="title_top">
+    <view class="title">
+        考试课程：
+        <text>{{ exam_details.title }}</text>
+    </view>
+    <view class="title">
+        开始时间：
+        <text>{{ time }}</text>
+    </view>
+    <view class="title">
+        答题时长：
+        <text>{{ exam_details.timeLength }}分钟</text>
+    </view>
+</view>
+<view class="explain">
+    <text>考试说明：</text>
+    <text class="content" user-select="true">
+        1.请不要中途离开考试界面，离开或退出考试界面会继续计时。
+        2.请将手机调至免打扰模式，避免来点引起考试中断，确保手机有充足电量或者接入电源。
+        3、考试时间截止或者答题时间结束，如果处于答题页面，将自动提交试卷。
+        4、考试过程中如果出现页面卡死，题目空白等情况，请尝试切换网络或者退出重新进入考试。
+    </text>
+</view>
+<view class="operation">
+    <view class="radio-section">
+        <radio-group bindchange="radioChange">
+            <radio></radio>
+        </radio-group>
+        <text>我已阅读并同意</text>
+    </view>
+    <view>
+        <button class="exam_btn" bindtap="exam_btn">开始考试</button>
+    </view>
+</view>

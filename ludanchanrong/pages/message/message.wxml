@@ -1,0 +1,8 @@
+<!-- <view class="message padding-sm">
+    <view class="message_data message_title">消息</view>
+    <view class="message_data flex justify-between text-gray">
+        <view class="radius">后台消息</view>
+        <view class="radius">2021-04-10 12:00</view>
+    </view>
+</view> -->
+<view class="text-center padding margin">暂无消息</view>

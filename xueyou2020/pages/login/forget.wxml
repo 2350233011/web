@@ -1,0 +1,14 @@
+<view class="container">
+    <view class="phone">
+        <text>电话：</text>
+        <text>1234567890</text>
+    </view>
+    <view class="http">
+        <text>网址：</text>
+        <text>1234567890</text>
+    </view>
+    <view class="email">
+        <text>邮箱：</text>
+        <text>1234567890</text>
+    </view>
+</view>

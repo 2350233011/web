@@ -1,0 +1,53 @@
+page{
+    height: 100%;
+    width: 100%;
+    background-color: #f2f2f2
+  }
+  .changeInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    margin: 50rpx auto;
+  }
+  .changeInfoName{
+    position: relative;
+    height: 80rpx;
+    width: 100%;
+    border-radius: 10rpx;
+    background: #fff;
+    margin-bottom: 20rpx;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+  }
+  .codeBtn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+    width: 30%;
+    font-size: 26rpx;
+    height: 80rpx;
+    line-height: 60rpx;
+    border: 1px solid gainsboro;
+    background-color: #1E90FF;
+  }
+  .changeInfoName input{
+    width: 100%;
+    height:100%;
+  }
+  .changeBtn{
+    width: 40%;
+    height: 100rpx;
+    background: #1E90FF;
+    color: #ffffff;
+    border-radius: 50rpx;
+    margin-top: 10%;
+    line-height: 80rpx;
+  }
+  .operation{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    margin-top: 10px;
+  }

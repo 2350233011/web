@@ -1,0 +1,49 @@
+.fixed {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    z-index: 99999;
+}
+
+.Fixed {
+    background-color: white;
+    box-shadow: 2rpx 4rpx 4rpx gainsboro;
+}
+
+.operation {
+    background-color: #ffffff;
+    margin-top: 10rpx;
+    padding: 5rpx;
+}
+
+.nav .cu-item {
+    color: #1E90FF;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 5px;
+}
+
+.nav .conduct {
+    background-color: #1E90FF;
+    color: white;
+    width: 150rpx;
+}
+
+.exam {
+    margin-top: 20rpx;
+}
+
+.cu-avatar {
+    font-size: 1em;
+    color: white;
+    height: 70rpx;
+    width: 70rpx;
+}
+
+.conduct_lcon {
+    background-color: #1E90FF;
+}
+
+.ranking {
+    border-top: 1px solid gainsboro;
+}

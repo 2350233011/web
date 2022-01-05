@@ -1,0 +1,81 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/liaoshang/inputs/inputs_shop",
+        "pages/liaoshang/inputs/inputs",
+        "pages/user/user",
+        "pages/liaoshang/inputs/inputs_search",
+        "pages/login/message",
+        "pages/liaoshang/liaoshang",
+        "pages/login/identity",
+        "pages/login/logon",
+        "pages/liaoshang/inputs/inputs_detail",
+        "pages/liaoshang/inputs_all",
+        "pages/liaoshang/theorder/theorder_breed",
+        "pages/liaoshang/theorder/theorder_allot",
+        "pages/liaoshang/theorder/theorder_input",
+        "pages/liaoshang/detail/detail",
+        "pages/liaoshang/detail/clarify",
+        "pages/yangzhihu/yangzhihu",
+        "pages/yangzhihu/theorder_detail",
+        "pages/yangzhihu/books",
+        "pages/yangzhihu/detail",
+        "pages/user/user_change",
+        "pages/result/index",
+        "pages/message/message",
+        "pages/logs/logs",
+        "pages/liaoshang/inputs/inputs_buy",
+        "pages/liaoshang/inputs/inputs_shop_class",
+        "pages/tourupin/tourupin"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "color": "#a9b7b7",
+        "selectedColor": "#1e90ff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/liaoshang/liaoshang",
+                "iconPath": "images/tabBar/user.png",
+                "selectedIconPath": "images/tabBar/user1.png",
+                "text": "料商"
+            },
+            {
+                "pagePath": "pages/yangzhihu/yangzhihu",
+                "iconPath": "images/tabBar/user.png",
+                "selectedIconPath": "images/tabBar/user1.png",
+                "text": "养殖户"
+            },
+            {
+                "pagePath": "pages/tourupin/tourupin",
+                "iconPath": "images/tabBar/user.png",
+                "selectedIconPath": "images/tabBar/user1.png",
+                "text": "投入品"
+            }
+        ]
+    },
+    "plugins": {
+        "shargoodata": {
+            "version": "2.3.1",
+            "provider": "wxe83fe5a4f77efb58"
+        }
+    },
+    "usingComponents": {
+        "mp-html": "components/mp-html/index"
+    },
+    "useExtendedLib": {
+        "weui": true
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    }
+}

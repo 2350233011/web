@@ -1,0 +1,48 @@
+<scroll-view scroll-x class="bg-white nav text-center operation">
+    <view class="cu-item {{TopIndex == 0 ? 'conduct':''}} " bindtap='changstyle' data-index="0">
+        正在进行
+    </view>
+    <view class="cu-item {{TopIndex == 1 ? 'conduct':''}} " bindtap='changstyle' data-index="1">
+        已完成
+    </view>
+</scroll-view>
+<view wx:if="{{TopIndex == 0}}">
+    <scroll-view>
+        <view class="cu-list menu-avatar exam">
+            <view class="cu-item" wx:for="{{exam}}" wx:for-index="index" bindtap="conduct_exam" wx:key="conduct" data-target="{{ index }}">
+                <view class="cu-avatar radius conduct_lcon">
+                    <text>考试</text>
+                </view>
+                <view class="content">
+                    <view class="text-grey">{{ item.title }}</view>
+                </view>
+                <view class="action">
+                    <view class="text-grey text-xs">出题时间{{ item.time }}</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view style="height: 110rpx;" class="flex justify-center">
+        <view class="padding-sm margin-xs" wx:if="{{ tips0 !== null }}">{{ tips0 }}</view>
+    </view>
+</view>
+<view wx:if="{{TopIndex == 1}}">
+    <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+        <view class="cu-list menu-avatar exam">
+            <view class="cu-item " wx:for="{{complete_exam}}" wx:for-index="index" bindtap="complete_exam" wx:key="unconduct" data-target="{{ index }}">
+                <view class="cu-avatar radius">
+                    <text>考试</text>
+                </view>
+                <view class="content">
+                    <view class="text-grey">{{ item.title }}</view>
+                </view>
+                <view class="action">
+                    <view class="text-grey text-xs">总分:{{ item.userScore }}</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view style="height: 110rpx;" class="flex justify-center">
+        <view class="padding-sm margin-xs" wx:if="{{ tips1 !== null }}">{{ tips1 }}</view>
+    </view>
+</view>

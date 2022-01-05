@@ -1,0 +1,158 @@
+<wxs src="../../utils/change.wxs" module="app"></wxs>
+<view class="message">
+    <view class="flex message_top">
+        <view class="flex-sub headimg" bind:tap="to_user">
+            <image src="{{userinfo.avatarUrl}}" />
+        </view>
+        <view class="flex-treble message_money">
+            <view class="money_title">我的账本</view>
+            <view class='to_view' bindtap='to_lines'>查看明细</view>
+        </view>
+        <view class="flex-sub message_data">
+            <text class="cuIcon-message text-white" data-type="yangzhihu" bind:tap="to_message"></text>
+        </view>
+    </view>
+</view>
+<view class="body">
+    <view class="body_margin body_theorder">
+        <view class="flex _title">
+            <view class="flex-treble">我的养殖订单</view>
+            <view class="flex-sub gengduo" data-type="theorder" bind:tap="to_detail">
+                <text>更多 ></text>
+            </view>
+        </view>
+        <view class="theorder_data">
+            <block wx:for="{{order_info1}}">
+                <view class="data_top">
+                    <view class="data_body">
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius">
+                                <text class="cuIcon-shop lg text-blue"></text>
+                                {{item.shopName}}
+                            </view>
+                            <view class="radius">订单状态:已下单</view>
+                        </view>
+                        <view class="line"></view>
+                        <!-- data-id="{{item.orderId}}" bindtap="toOrderDetail" 查看订单详情 -->
+                        <view class="flex padding pastbuy">
+                            <view class="flex-sub pastbuy_img">
+                                <!-- <image src="{{item.itemPicUrl}}" /> -->
+                                <image src="{{item.itemPic}}" />
+                            </view>
+                            <view class="flex-twice theorder_title">
+                                <view class="limitLine2">{{item.itemName}}</view>
+                                <!-- <view class="text-gray text-sm">{{item.skuName}}</view> -->
+                            </view>
+                            <view class="flex-twice pastbuy_data">
+                                <view>
+                                    定单金额:
+                                    <text>￥{{item.allunitprice}}</text>
+                                </view>
+                                <view>
+                                    定单数量:
+                                    <text>X {{item.quantity}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <view class="padding-sm clarify_top">
+                            <button class="cu-btn round bg-red" data-target="DialogModal1" data-id="{{item.id}}" data-index="{{index}}" bind:tap="cancel">
+                                取消订单
+                            </button>
+                            <button class="cu-btn round bg-blue" data-target="DialogModal1" data-id="{{item.id}}" data-index="{{index}}" bind:tap="theorder_allot">
+                                接收订单
+                            </button>
+                            <!-- <button wx:if="{{ button_theorder == 1 }}" style="width:90%;" class="cu-btn round bg-blue" data-target="DialogModal1" data-id="{{item.id}}" data-index="{{index}}" bind:tap="supply">
+                                确认供货
+                            </button> -->
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <!-- <view wx:else>暂无进行中的订单</view> -->
+    </view>
+    <view class="body_margin body_theorder">
+        <view class="flex _title">
+            <view class="flex-treble">我的投入品</view>
+            <view class="flex-sub gengduo" data-type="inputs" bind:tap="to_detail">
+                <text>更多 ></text>
+            </view>
+        </view>
+        <view class="theorder_data">
+            <block wx:for="{{order_info2}}">
+                <view class="data_top">
+                    <view class="data_body">
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius">
+                                <text class="cuIcon-shop lg text-blue"></text>
+                                {{item.shopName}}
+                            </view>
+                            <view class="radius">
+                                订单状态:{{app.toFind(states,"id",item.state,"name")}}
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <view class="flex padding pastbuy" data-id="{{item.id}}" data-index="{{index}}" data-state="{{item.state}}" bindtap="toOrderDetail">
+                            <view class="flex-sub pastbuy_img">
+                                <image src="{{item.itemPic}}" />
+                            </view>
+                            <view class="flex-twice theorder_title">
+                                <view class="limitLine2">{{item.itemName}}</view>
+                                <view class="text-gray text-sm">{{item.skuName}}</view>
+                            </view>
+                            <view class="flex-twice pastbuy_data">
+                                <view>
+                                    定单金额:
+                                    <text>￥{{item.unitprice}}</text>
+                                </view>
+                                <view>
+                                    定单数量:
+                                    <text>X {{item.quantity}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius">
+                                总金额￥{{item.allunitprice}}
+                                实付款￥
+                                <text class="text-xxl text-red">{{item.allunitprice}}</text>
+                            </view>
+                            <view class="radius">
+                                <button class="cu-btn round bg-blue" data-id="{{item.id}}" data-index="{{index}}" bind:tap="the_goods">
+                                    确认收货
+                                </button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <!-- <view wx:else>暂无进行中的订单</view> -->
+    </view>
+</view>
+<view class="bottom"></view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">融资</view>
+            <view class="action" bindtap="hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl goods_datas">
+            在本协议中除另有定义的以外，以下用语具有以下含意：“适用法律”包括与本协议和担保文件的签署、提交、履行、
+            有效性和可执行性相关的新加坡、香港和中华人民共和国的任何宪法、条约、法令、各级立法、普通法、惯例法及司法判例；
+            “转让契约”包括保险单转让契约、销售收入转让契约、租金收入的转让契约和贷款人凭其自主决定而不时要求的其他转让契约；
+            “保险单转让契约”是指将由公司保证人和_________按照本协议附件a的格式或贷款人指定的其它格式，单独或共同签署的、
+            以贷款人为第一受益人的转让保险单（及保险单的所有权利、权益和利益）的保险单转让契约；
+        </view>
+        <view class="cu-bar bg-white justify-end">
+            <view>
+                <button class="cu-btn line-red text-blue" bindtap="hideModal">取消</button>
+                <button class="cu-btn bg-blue" bindtap="financing">确定</button>
+            </view>
+        </view>
+    </view>
+</view>

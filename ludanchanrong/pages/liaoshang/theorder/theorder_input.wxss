@@ -1,0 +1,75 @@
+.data_body {
+    background-color: white;
+    margin: 20rpx;
+    border-radius: 10rpx;
+}
+
+.line {
+    margin: 0 auto;
+    width: 95%;
+    height: 2rpx;
+    background: gainsboro;
+}
+
+.pastbuy_img image {
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 20rpx;
+}
+
+.pastbuy_data {
+    text-align: right;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* .pastbuy_data text,
+.clarify_bottom .text_red {
+    color: red;
+} */
+
+.clarify_bottom .text_green {
+    color: green;
+}
+
+.clarify_top {
+    font-size: 24rpx;
+}
+
+.theorder_title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Firefox */
+    display: -moz-box;
+    -moz-line-clamp: 1;
+    -moz-box-orient: vertical;
+    /* Safari、Opera、Chrome */
+    display: -webkit-box;
+    /* 盒子垂直对齐 */
+    -webkit-box-orient: vertical;
+    /* 两行 */
+    -webkit-line-clamp: 3;
+}
+
+.input_data {
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    overflow: hidden;
+}
+
+.gotop {
+    position: absolute;
+    top: 85%;
+    left: 85%;
+}
+
+.gotop text {
+    font-size: 40rpx;
+    font-weight: 800;
+    padding: 20rpx;
+    background-color: white;
+    border-radius: 50%;
+    border: 1rpx solid gainsboro;
+}

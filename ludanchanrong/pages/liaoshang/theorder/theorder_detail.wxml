@@ -1,0 +1,83 @@
+<view class="data_top">
+    <view class="flex padding-sm justify-between clarify_top">
+        <view class="radius">2021-04-10</view>
+        <view class="radius">得利斯 订单号:1234567890</view>
+    </view>
+    <view class="line"></view>
+    <view class="flex padding pastbuy">
+        <view class="flex-sub pastbuy_img">
+            <image src="../../../images/liaoshang/ji.png" />
+        </view>
+        <view class="flex-twice">活体肉鸡</view>
+        <view class="flex-twice pastbuy_data">
+            <view>
+                实际金额:
+                <text>￥114,000</text>
+            </view>
+            <view>
+                原金额:
+                <text>￥120,000</text>
+            </view>
+            <view>实供货：X 3800</view>
+            <view>应供货：X 4000</view>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="clarify_bottom padding">
+        <view class="cu-timeline">
+            <view class="cu-time">04-06</view>
+            <view class="cu-item">
+                <view class="content">
+                    <text>10:30</text>
+                    交货确认，订单完成
+                </view>
+            </view>
+        </view>
+        <view class="cu-timeline">
+            <view class="cu-time">04-05</view>
+            <view class="cu-item">
+                <view class="content">
+                    <text>10:30</text>
+                    屠宰厂确认
+                </view>
+            </view>
+        </view>
+        <view class="cu-timeline">
+            <view class="cu-time">04-04</view>
+            <view class="cu-item">
+                <view class="content">
+                    <text>10:30</text>
+                    收货发出
+                </view>
+            </view>
+        </view>
+        <view class="cu-timeline">
+            <view class="cu-time">04-03</view>
+            <view class="cu-item">
+                <view class="content">
+                    <text>10:30</text>
+                    分配养殖户完成
+                </view>
+            </view>
+        </view>
+        <view class="cu-timeline">
+            <view class="cu-time">04-02</view>
+            <view class="cu-item">
+                <view class="content">
+                    <text>10:30</text>
+                    接收订单
+                </view>
+            </view>
+        </view>
+        <view class="cu-timeline">
+            <view class="cu-time">04-01</view>
+            <view class="cu-item">
+                <view class="content">
+                    <text>10:30</text>
+                    屠宰厂提交订单
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>

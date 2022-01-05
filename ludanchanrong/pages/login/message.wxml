@@ -1,0 +1,95 @@
+<wxs src="../../utils/change.wxs" module="change"></wxs>
+<view class="bg-white padding">
+    <view class="cu-steps">
+        <view class="cu-item {{index>num?'':'text-blue'}}" wx:for="{{numList}}" wx:key="index">
+            <text class="num {{register == false && index == 2?'err':''}}" data-index="{{index + 1}}"></text>
+            <!-- bind:tap="{{index>num?'':'numStep_index'}}" -->
+            {{item.name}}
+        </view>
+    </view>
+</view>
+<block wx:if="{{num == 0}}">
+    <view class="message_top">
+        <view class="message_top_margin">
+            <view class="user_data">基本信息：</view>
+            <scroll-view class="scroll" scroll-y="true">
+                <view class="flex padding justify-start">
+                    <view class="user_title flex-sub">姓名：</view>
+                    <view class="user_name flex-treble">{{user_data.name}}</view>
+                </view>
+                <view class="flex padding justify-start">
+                    <view class="user_title flex-sub">手机号：</view>
+                    <view class="flex-treble">{{user_data.code}}</view>
+                </view>
+                <view class="flex padding justify-start">
+                    <view class="user_title flex-sub">{{user_data.certificatesType}}：</view>
+                    <view class="flex-treble">{{user_data.certificatesNo}}</view>
+                </view>
+                <view class="flex padding justify-start">
+                    <view class="user_title flex-sub">身份：</view>
+                    <view class="flex-treble">{{change.change(user_data.rules)}}</view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="button">
+            <button class='changeBtn' style="width:90%" bind:tap="numSteps">下一步</button>
+        </view>
+    </view>
+</block>
+<block wx:if="{{num == 1}}">
+    <view class="message_data">
+        <block wx:if="{{upload == true}}">
+            <view class="message_face">
+                <loading class="jiazai" hidden="{{hidden}}">验证中...</loading>
+            </view>
+            <view class="button">
+                <button class="changeBtn" style="width:90%" disabled>点击验证</button>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="message_face">
+                <view class="ceshi">
+                    <camera device-position="front" class='cameraGai' flash="off" frame-size="large" binderror="error">
+                        <cover-view>
+                            <cover-image src="../../images/login/yuan.png"></cover-image>
+                        </cover-view>
+                    </camera>
+                </view>
+                <view class="photo_title">请正视摄像头</view>
+            </view>
+            <view class="button">
+                <button class="changeBtn" style="width:90%" bindtap="takePhoto">点击验证</button>
+            </view>
+        </block>
+    </view>
+</block>
+<block wx:if="{{num == 2}}">
+    <block wx:if="{{register == true}}">
+        <view class="message_data">
+            <view class="message_top_margin">
+                <view class="success_title">激活成功！</view>
+                <view class="success_img">
+                    <image src="../../images/login/chenggong.png" />
+                    <!-- <image src="{{src}}" /> -->
+                </view>
+            </view>
+            <view class="button">
+                <button class='changeBtn' style="width:90%" bind:tap="save">点击进入</button>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="message_data">
+            <view class="message_top_margin">
+                <view class="success_title">激活失败！请重试</view>
+                <view class="success_img">
+                    <image src="../../images/login/shibai.png" />
+                    <!-- <image src="{{src}}" /> -->
+                </view>
+            </view>
+            <view class="button">
+                <button class='changeBtn' bind:tap="again">点击重试</button>
+            </view>
+        </view>
+    </block>
+</block>

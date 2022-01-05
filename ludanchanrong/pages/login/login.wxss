@@ -1,0 +1,127 @@
+.cu-form-group {
+    background-color: #f2f2f2;
+    min-height: 100rpx;
+    padding: 0;
+    border-radius: 20rpx;
+    padding-left: 30rpx;
+    margin: 15rpx 20rpx;
+}
+
+.yanzhengma {
+    height: 100rpx;
+    width: 200rpx;
+    text-align: center;
+    line-height: 100rpx;
+    /* font-weight: bold; */
+    /* background-color: gainsboro; */
+}
+
+.vertical {
+    width: 2rpx;
+    height: 100rpx;
+    background-color: #dcdcdc86;
+    /* margin: 4rpx; */
+}
+
+page {
+    /* height: 100%;
+      width: 100%; */
+    background-color: white
+}
+
+.changeInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    margin: 50rpx auto;
+}
+
+.codeBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #bbb;
+    width: 30%;
+    font-size: 26rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.changeBtn {
+    width: 100%;
+    height: 90rpx;
+    background: #1E90FF;
+    color: #f2f2f2;
+    border-radius: 50rpx;
+    margin-top: 10%;
+    line-height: 60rpx;
+}
+
+.color {
+    background-color: gainsboro;
+    color: black;
+}
+
+.operation {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    margin-top: 10px;
+}
+
+.loading {
+    height: 600rpx;
+}
+
+.but_jump_all {
+    display: flex;
+    flex-direction: row;
+    margin: 20% auto;
+    color: #1e90ff;
+    font-size: 34rpx;
+    /* font-weight: bold; */
+}
+
+.but_jump {
+    margin: 4rpx;
+}
+
+.logo {
+    margin: 0 auto;
+    width: 200rpx;
+    height: 200rpx;
+    margin-bottom: 50rpx;
+}
+
+.btn-margin {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.btn-margin .cu-btn {
+    width: 100%;
+}
+
+.radio-section {
+    font-size: 24rpx;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 60rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.radio-section radio-group {
+    display: flex;
+    align-items: center;
+}
+
+.radio-section checkbox {
+    zoom: 70%;
+    font-size: 70%;
+    margin-right: 10rpx;
+}

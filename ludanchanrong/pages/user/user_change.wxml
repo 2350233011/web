@@ -1,0 +1,49 @@
+<view wx:if="{{sexshow==true}}" class="cu-form-group align-start user_change">
+    <view class="title">{{ title }}</view>
+    <!-- <view class="vertical"></view> -->
+    <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+        <view class="picker">{{picker[index]}}</view>
+    </picker>
+</view>
+<view wx:if="{{sexshow==false}}" class="cu-form-group align-start user_change">
+    <view class="title">{{ title }}</view>
+    <!-- <view class="vertical"></view> -->
+    <textarea maxlength="20" auto-focus bindinput="textareaBInput" placeholder="{{ placeholder }}"></textarea>
+    <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+</view>
+<view wx:if="{{goodsShow}}">
+    <radio-group style="display:block" bindchange="radioChange">
+        <view wx:for="{{goods_info}}" class="data_top">
+            <view class="data_body">
+                <view class="flex padding pastbuy">
+                    <view class="goods_img flex-sub">
+                        <image src="../../images/liaoshang/weizhi.png" />
+                    </view>
+                    <view class="flex-treble">
+                        <view class="goods_user">
+                            <view class="user_name text-xl">{{item.contactperson}}</view>
+                            <view class="user_code text-sm text-grey">{{item.contactphone}}</view>
+                        </view>
+                        <view class="goods_data text-sm limitLine2">{{item.fulladdress}}</view>
+                    </view>
+                </view>
+                <view class="line"></view>
+                <view class="flex padding-sm justify-between clarify_top">
+                    <view class="radius radio-section">
+                        <radio class="round blue" value="{{item.id}}" checked="{{item.isdefault == 1 ? 'true':''}}" bindtap="{{item.isdefault !== 1?'updateIsdefault':''}}"/>
+                        默认地址
+                    </view>
+                    <view class="goods_menu radius">
+                        <view bindtap="addGoods" data-index="{{index}}">修改</view>
+                        <view bindtap="delGoods" data-id="{{item.id}}">删除</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </radio-group>
+    <view class="inputs_but flex">
+        <view class="flex-sub">
+            <button class="cu-btn round bg-blue" bindtap="addGoods" data-index="-1">新增地址</button>
+        </view>
+    </view>
+</view>

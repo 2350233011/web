@@ -1,0 +1,80 @@
+<wxs src="../../utils/index.wxs" module="app"></wxs>
+<!-- 头部 -->
+<scroll-view scroll-x class="bg-white nav">
+    <view class="flex text-center">
+        <view class="cu-item flex-sub">
+            <!-- <text class="cuIcon-time lg text-gray">{{ exam_time }}</text> -->
+        </view>
+        <view class="cu-item flex-sub" bindtap="showModal" data-target="bottomModal">
+            {{ subject_id }}/{{ subject.length }}答题卡
+        </view>
+        <view class="cu-item flex-sub"></view>
+    </view>
+    <view class="flex solid-bottom justify-center">
+        <view class="cu-items" wx:for="{{ subject_kind }}" wx:for-index="index" bindtap="jump_subject" data-index="{{ index }}" data-num="{{ item.num }}">
+            {{ item.sub }}
+        </view>
+    </view>
+</scroll-view>
+<!-- 题目 -->
+<view class="subject" wx:for="{{ subject }}" wx:for-index="index" wx:key="id" wx:if="{{ sn[subject_id-1] == item.sn }}">
+    <view wx:if="{{ item.btQuestion.type == '1' }}">
+        <view class="flex solid-bottom padding align-start">单选题({{ item.questionScore }}分)</view>
+        <view class="flex solid-bottom padding align-start">
+            {{item.sn}}.
+            <parser html="{{item.btQuestion.name}}" />
+        </view>
+        <view wx:for="{{ item.btQuestion.btAnswerItemList }}" wx:key="id" wx:for-item="items">
+            <view class="flex solid-bottom padding align-start selects {{items.topIndex == 1 ? 'select':''}}" bindtap='radio_click' data-name="{{ items.sn }}">
+                {{ app.conversion(items.sn) }}：
+                <parser html="{{items.answeritem}}" />
+            </view>
+        </view>
+    </view>
+    <view wx:elif="{{ item.btQuestion.type == '2' }}">
+        <view class="flex solid-bottom padding align-start">多选题({{ item.questionScore }}分)</view>
+        <view class="flex solid-bottom padding align-start">
+            {{item.sn}}.
+            <parser html="{{item.btQuestion.name}}" />
+        </view>
+        <view wx:for="{{ item.btQuestion.btAnswerItemList }}" wx:key="id" wx:for-item="items">
+            <view class="flex solid-bottom padding align-start selects {{items.topIndex == 1 ? 'select':''}}" bindtap='checkbox_click' data-name="{{ items.sn }}">
+                {{ app.conversion(items.sn) }}：
+                <parser html="{{items.answeritem}}" />
+            </view>
+        </view>
+    </view>
+</view>
+<view style="height: 110rpx;" class="flex justify-center">
+    <view class="padding-sm margin-xs" wx:if="{{ tips !== null }}">{{ tips }}</view>
+</view>
+<!-- 操作按钮 -->
+<view class="cu-bar btn-group exam_btn_group">
+    <button bindtap='subject_switch' data-type="top" class="cu-btn text-green line-green shadow">
+        上一题
+    </button>
+    <button bindtap='subject_switch' data-type="bottom" class="cu-btn bg-green shadow-blur">
+        下一题
+    </button>
+</view>
+<!-- 模态框 -->
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white">
+            <view></view>
+            <view>答题卡</view>
+            <view class="action text-blue" bindtap="hideModal">
+                <text class="cuIcon-close lg text-gray"></text>
+            </view>
+        </view>
+        <view class="padding-xl">
+            <view class="cu-avatar round  margin-xs {{app.indexOf(answer,'sn',sn[id]) ? 'dialog_color':''}}" bindtap="answer_btn" data-id="{{ id+1 }}" wx:for="{{ subject.length }}" wx:for-index="id" wx:key="id">
+                <text class="avatar-text">{{id+1}}</text>
+            </view>
+        </view>
+        <view class="dialog_bottom" bindtap="browse">
+            <text class="cuIcon-edit lg text-gray"></text>
+            整卷浏览
+        </view>
+    </view>
+</view>

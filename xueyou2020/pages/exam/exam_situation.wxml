@@ -1,0 +1,78 @@
+<wxs src="../../utils/index.wxs" module="app"></wxs>
+<scroll-view scroll-x class="bg-white nav">
+    <view class="flex text-center">
+        <view class="cu-item flex-sub"></view>
+        <view class="cu-item flex-sub" bindtap="showModal" data-target="bottomModal">
+            {{ subject_id }}/{{ subject.length }}答题卡
+        </view>
+        <view class="cu-item flex-sub"></view>
+    </view>
+</scroll-view>
+<view class="subject" wx:for="{{ subject }}" wx:for-index="index" wx:key="id" wx:if="{{ sn[subject_id-1] == item.sn }}">
+    <view class="flex solid-bottom padding align-start">单选题({{ item.questionScore }}分)</view>
+    <view class="flex solid-bottom padding align-start">
+        {{item.sn}}.
+        <parser html="{{item.btQuestion.name}}" />
+    </view>
+    <view wx:for="{{ item.btQuestion.btAnswerItemList }}" wx:key="id" wx:for-item="items">
+    <!-- app.indexOf(item.btQuestion.btAnswerItemList,'topIndex',1) &&  -->
+        <view class="flex solid-bottom padding align-start selects {{ items.topIndex == 1 && items.isRight == 0 ? 'error':'' }} {{ items.isRight == 1 ? 'select':'' }} {{items.topIndex == 1 ? 'select':''}}">
+            {{ app.conversion(items.sn) }}：
+            <parser html="{{items.answeritem}}" />
+        </view>
+    </view>
+    <view class="answer">
+        正确答案 {{ app.conversion(app.findIndex(item.btQuestion.btAnswerItemList,"isRight",1)) }}
+        您的答案{{ app.conversion(app.findIndex(item.btQuestion.btAnswerItemList,"id",item.selectOption)) }}
+    </view>
+    <!-- <view wx:if="{{ item.btQuestion.type == '1' }}"></view>
+    <view wx:elif="{{ item.btQuestion.type == '2' }}">
+        <view class="flex solid-bottom padding align-start">多选题({{ item.questionScore }}分)</view>
+        <view class="flex solid-bottom padding align-start">
+            {{item.sn}}.
+            <parser html="{{item.btQuestion.name}}" />
+        </view>
+        <view wx:for="{{ item.btQuestion.btAnswerItemList }}" wx:key="id" wx:for-item="items">
+            <view class="flex solid-bottom padding align-start selects {{ items.topIndex == 1 && items.isRight == 0 ? 'error':'' }} {{ items.isRight == 1 ? 'select':'' }} {{items.topIndex == 1 ? 'select':''}}">
+                {{ app.conversion(items.sn) }}：
+                <parser html="{{items.answeritem}}" />
+            </view>
+        </view>
+        <view class="answer">
+            正确答案{{ app.conversion(app.findIndex2(item.btQuestion.btAnswerItemList,"isRight",1)) }}
+                您的答案{{ app.conversion(app.findIndex2(item.btQuestion.btAnswerItemList,"id",item.selectOption)) }}
+        </view>
+    </view> -->
+</view>
+<view style="height: 110rpx;" class="flex justify-center">
+    <view class="padding-sm margin-xs" wx:if="{{ tips !== null }}">{{ tips }}</view>
+</view>
+<view class="cu-bar btn-group exam_btn_group">
+    <button bindtap='subject_switch' data-type="top" class="cu-btn text-green line-green shadow">
+        上一题
+    </button>
+    <button bindtap='subject_switch' data-type="bottom" class="cu-btn bg-green shadow-blur">
+        下一题
+    </button>
+</view>
+<!-- 模态框 -->
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white">
+            <view></view>
+            <view>答题卡</view>
+            <view class="action text-blue" bindtap="hideModal">
+                <text class="cuIcon-close lg text-gray"></text>
+            </view>
+        </view>
+        <view class="padding-xl">
+            <view class="cu-avatar round  margin-xs {{subject[id].isRight == 1 ? 'dialog_color':(subject[id].isRight == 0 ? 'error_color': '')}}" bindtap="answer_btn" data-id="{{ id+1 }}" wx:for="{{ subject.length }}" wx:for-index="id" wx:key="id">
+                <text class="avatar-text">{{id+1}}</text>
+            </view>
+        </view>
+        <view class="dialog_bottom" bindtap="browse">
+            <text class="cuIcon-edit lg text-gray"></text>
+            整卷浏览
+        </view>
+    </view>
+</view>

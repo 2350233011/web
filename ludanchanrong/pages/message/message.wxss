@@ -1,0 +1,19 @@
+.message {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 20rpx;
+    border-radius: 10rpx
+}
+
+.message_data {
+    margin: 10rpx 0;
+}
+
+.message_title {
+    font-size: 34rpx;
+}
+
+.text-gray {
+    font-size: 24rpx;
+}

@@ -1,0 +1,32 @@
+.data_top{
+    background-color: white;
+    padding: 20rpx 0;
+}
+.line {
+    margin: 0 auto;
+    width: 95%;
+    height: 2rpx;
+    background:gainsboro;
+}
+.pastbuy_img image{
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 20rpx;
+}
+.pastbuy_data{
+    text-align: right;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.clarify_top{
+    font-size: 24rpx;
+}
+.pastbuy_data text, .clarify_bottom .text_red{
+    color: red;
+}
+.clarify_bottom .text_green{
+    color: green;
+}
+.clarify_bottom .flex{
+    padding: 15rpx 0;
+}

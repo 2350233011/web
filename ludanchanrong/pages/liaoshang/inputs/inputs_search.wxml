@@ -1,0 +1,69 @@
+<view class="cu-bar search bg-white">
+    <view class="action">
+        <view class='select_box'>
+            <view class='select' catchtap='selectTap'>
+                {{type_selectData[type_index]}}
+                <text class="cuIcon-triangledownfill"></text>
+            </view>
+            <view class='option_box {{type_show?"border_show":""}}' style='height:{{type_show?120:0}}rpx;'>
+                <view class='option' wx:for='{{type_selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>
+                    {{item}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="搜索商品" value="{{inputValue}}" bindconfirm="search" bindinput="bindKeyInput" confirm-type="search"></input>
+    </view>
+    <view class="action" style="width:150rpx">
+        <button class="cu-btn bg-blue round" bindtap="search">搜索</button>
+    </view>
+</view>
+<view wx:if="{{type_index == 0}}" class="input_data">
+    <block wx:if="{{inputs_info.length > 0}}">
+        <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscrolltolower="{{loading}}" bindscroll="scrolltoupper" enhanced="true" data-type="add" enable-back-to-top="true" style="flex: 1;height: 1px;">
+            <view class="input_datas">
+                <block wx:for="{{inputs_info}}" wx:key="id">
+                    <view class="padding goods" bind:tap="to_inputs_detail" data-skuid="{{item.skuId}}" data-itemid="{{item.itemId}}">
+                        <!-- <text class="stiltle">{{item.shopName}}</text> -->
+                        <image src="{{item.picUrl}}" />
+                        <text>{{item.itemName}}</text>
+                        <text class="text-red">￥{{item.skuPrice}}</text>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+        <view class="gotop" hidden='{{!cangotop}}' catchtap="goTop">
+            <text class="cuIcon-top text-gray"></text>
+        </view>
+    </block>
+    <block wx:if="{{inputs_show}}">
+        <view class="text-center padding margin">暂无产品</view>
+    </block>
+</view>
+<view wx:else class="input_data">
+    <block wx:if="{{shop_info.length > 0}}">
+        <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscrolltolower="{{loading}}" bindscroll="scrolltoupper" enhanced="true" data-type="add" enable-back-to-top="true" style="flex: 1;height: 1px;">
+            <view wx:for="{{shop_info}}" wx:key="id" class="flex flex-wrap shop_top" bindtap="to_shop" data-id="{{item.shopId}}">
+                <view class="basis-xs">
+                    <image class="shop_logo" src="{{item.shopLogoUrl}}" />
+                </view>
+                <view class="basis-lg text-xl" style="display:flex;align-items: center;">
+                    <mp-html style="width: 100%;" content="{{item.shopName}}"></mp-html>
+                </view>
+                <view class="basis-xs" style="display:flex;align-items: center;">
+                    <view class="round line-blue collect " role="button" aria-disabled="false">
+                        进店
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="gotop" hidden='{{!cangotop}}' catchtap="goTop">
+            <text class="cuIcon-top text-gray"></text>
+        </view>
+    </block>
+    <block wx:if="{{shop_show}}">
+        <view class="text-center padding margin">暂无店铺</view>
+    </block>
+</view>

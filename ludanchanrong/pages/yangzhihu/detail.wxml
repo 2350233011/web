@@ -1,0 +1,162 @@
+<wxs src="../../utils/change.wxs" module="app"></wxs>
+<view wx:if="{{ body_show == 'theorder' }}">
+    <scroll-view scroll-x class="bg-white nav text-center operation">
+        <block wx:for="{{group_info}}">
+            <view class="cu-item {{TopIndex == item.id ? 'conduct':''}} " bindtap='changstyle' data-index="{{item.id}}">
+                {{item.name}}
+            </view>
+        </block>
+    </scroll-view>
+    <view wx:if="{{order_info.length > 0}}" class="theorder_data">
+        <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscroll="scrolltoupper" refresher-enabled="true"
+            refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh" enhanced="true" data-type="add"
+            enable-back-to-top="true" style="flex: 1;height: 1px;">
+            <block wx:for="{{order_info}}">
+                <view class="data_top">
+                    <view class="data_body">
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius">
+                                <text class="cuIcon-shop lg text-blue"></text>
+                                {{item.shopName}}
+                            </view>
+                            <view class="radius">
+                                订单状态:{{app.toFind(states,"id",item.state,"name")}}
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <!-- data-id="{{item.orderId}}" bindtap="toOrderDetail" 查看订单详情 -->
+                        <view class="flex padding pastbuy">
+                            <view class="flex-sub pastbuy_img">
+                                <!-- <image src="{{item.itemPicUrl}}" /> -->
+                                <image src="{{item.itemPic}}" />
+                            </view>
+                            <view class="flex-twice theorder_title">
+                                <view class="limitLine2">{{item.itemName}}</view>
+                                <!-- <view class="text-gray text-sm">{{item.skuName}}</view> -->
+                            </view>
+                            <view class="flex-twice pastbuy_data">
+                                <view>
+                                    定单金额:
+                                    <text>￥{{item.allunitprice}}</text>
+                                </view>
+                                <view>
+                                    定单数量:
+                                    <text>X {{item.quantity}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <view class="data_body">
+                            <view wx:if="{{item.state==group_info[2].id}}" class="receiving">
+                                <view class="flex">
+                                    <view class="flex-sub">实际数量:</view>
+                                    <view class="flex-treble">{{item.actualQuantity}}</view>
+                                </view>
+                                <view class="flex">
+                                    <view class="flex-sub">实际重量:</view>
+                                    <view class="flex-treble">{{item.actualWeight}}</view>
+                                </view>
+                                <view class="flex">
+                                    <view class="flex-sub">实际单价:</view>
+                                    <view class="flex-treble">{{item.actualQuantity}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius"></view>
+                            <view class="radius">
+                                <button wx:if="{{item.state==group_info[0].id}}" class="cu-btn round bg-blue"
+                                    data-id="{{item.id}}" data-index="{{index}}" bind:tap="theorder_allot">
+                                    接收订单
+                                </button>
+                                <!-- <button wx:if="{{item.state==group_info[2].id}}" data-id="{{item.id}}" data-index="{{index}}" class="cu-btn round bg-blue" bind:tap="receive2">
+                                    确认订单
+                                </button> -->
+                                <!-- <button wx:if="{{item.state==6}}" class="cu-btn round bg-blue" data-id="{{item.id}}" data-index="{{index}}" bind:tap="supply">
+                                    确认供货
+                                </button> -->
+                                <!-- <button wx:if="{{item.state==6 || item.state==8 || item.state == 9}}" class="cu-btn round" data-id="{{item.id}}" data-index="{{index}}" bind:tap="to_theorder_detail">
+                                    查看明细
+                                </button> -->
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+        <view class="gotop" hidden='{{!cangotop}}' catchtap="goTop">
+            <text class="cuIcon-top text-gray"></text>
+        </view>
+    </view>
+    <view wx:else class="text-center padding">暂无订单</view>
+</view>
+<view wx:if="{{ body_show == 'inputs' }}">
+    <scroll-view scroll-x class="bg-white nav text-center operation">
+        <block wx:for="{{group_info2}}">
+            <view class="cu-item {{TopIndex == item.id ? 'conduct':''}} " bindtap='changstyle2'
+                data-index="{{item.id}}">
+                {{item.name}}
+            </view>
+        </block>
+    </scroll-view>
+    <view wx:if="{{order_info.length > 0}}" class="theorder_data">
+        <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscroll="scrolltoupper" data-type="inputs"
+            refresher-enabled="true" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh"
+            enhanced="true" data-type="add" enable-back-to-top="true" style="flex: 1;height: 1px;">
+            <block wx:for="{{order_info}}">
+                <view class="data_top">
+                    <view class="data_body">
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius">
+                                <text class="cuIcon-shop lg text-blue"></text>
+                                {{item.shopName}}
+                            </view>
+                            <view class="radius">
+                                订单状态:{{app.toFind(states,"id",item.state,"name")}}
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <view class="flex padding pastbuy" data-id="{{item.id}}" data-index="{{index}}"
+                            data-state="{{item.state}}" bindtap="toOrderDetail">
+                            <view class="flex-sub pastbuy_img">
+                                <image src="{{item.itemPic}}" />
+                            </view>
+                            <view class="flex-twice theorder_title">
+                                <view class="limitLine2">{{item.itemName}}</view>
+                                <view class="text-gray text-sm">{{item.skuName}}</view>
+                            </view>
+                            <view class="flex-twice pastbuy_data">
+                                <view>
+                                    定单金额:
+                                    <text>￥{{item.unitprice}}</text>
+                                </view>
+                                <view>
+                                    定单数量:
+                                    <text>X {{item.quantity}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius">
+                                总金额￥{{item.allunitprice}}
+                                实付款￥
+                                <text class="text-xxl text-red">{{item.allunitprice}}</text>
+                            </view>
+                            <view class="radius">
+                                <button wx:if="{{item.state == group_info2[1].id}}" class="cu-btn round bg-blue"
+                                    data-id="{{item.id}}" data-index="{{index}}" bind:tap="the_goods">
+                                    确认收货
+                                </button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+        <view class="gotop" hidden='{{!cangotop}}' catchtap="goTop">
+            <text class="cuIcon-top text-gray"></text>
+        </view>
+    </view>
+    <view wx:else class="text-center padding">暂无订单</view>
+</view>

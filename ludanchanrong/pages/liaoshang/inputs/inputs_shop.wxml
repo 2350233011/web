@@ -1,0 +1,87 @@
+<view class="flex flex-wrap shop_top">
+    <view class="basis-xs">
+        <image class="shop_logo" src="{{data.shopLogoUrl}}" />
+    </view>
+    <view class="basis-lg text-xl" style="display:flex;align-items: center;">
+        {{data.shopName}}
+    </view>
+    <view class="basis-xs" style="display:flex;align-items: center;">
+        <view class="round line-blue collect {{show_collection ? 'color_gray':''}}" bindtap="collection" data-id="{{config.shops_id}}" role="button" aria-disabled="false">
+            {{show_collection ? '已收藏':'收藏'}}
+        </view>
+    </view>
+</view>
+<view class="shop_body_menu nav">
+    <!-- <view class="cu-item {{shopsIndex == 1 ? 'conduct':''}} " bindtap='changstyle_shops' data-type="index" data-index="1">
+            首页
+        </view> -->
+    <view class="cu-item {{shopsIndex == 2 ? 'conduct':''}} " bindtap='changstyle_shops' data-type="all" data-index="2">
+        全部商品
+    </view>
+    <view class="cu-item {{shopsIndex == 3 ? 'conduct':''}} " bindtap='changstyle_shops' data-type="class" data-index="3">
+        分类查看
+    </view>
+</view>
+<view class="shop_body">
+    <view class="shop_body_all" wx:if="{{shopsIndex == 2}}">
+        <view class="basis-xl input_data">
+            <!-- bindscrolltolower="get_threeClassifications" -->
+            <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscroll="scrolltoupper" enhanced="true" data-type="add" enable-back-to-top="true" style="flex: 1;height: 1px;">
+                <view class="input_datas">
+                    <block wx:for="{{inputs_info}}" wx:key="id">
+                        <!-- wx:if="{{item.cid == kind[TopIndex-1].cid || TopIndex == 0}}" -->
+                        <view class="padding goods" bind:tap="to_inputs_detail" data-skuid="{{item.skuId}}" data-itemid="{{item.itemId}}">
+                            <!-- <text class="stiltle">{{item.shopName}}</text> -->
+                            <image src="{{item.picUrl}}" />
+                            <text>{{item.itemName}}</text>
+                            <text class="text-red">￥{{item.skuPrice}}</text>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="gotop" hidden='{{!cangotop}}' catchtap="goTop">
+            <text class="cuIcon-top text-gray"></text>
+        </view>
+    </view>
+    <view class="shop_body_clsss" wx:if="{{shopsIndex == 3}}">
+        <view class="shop_class" wx:for="{{kind}}" bindtap='to_changstyle' data-cid="{{item.cid}}" data-index="{{index}}">
+            <view class="class_name">{{item.cname}}</view>
+            <text class="cuIcon-right"></text>
+        </view>
+        <view style="height:100rpx"></view>
+        <!-- <view class="flex-sub input_menu">
+            <scroll-view scroll-y="true" style="flex: 1;height: 1px;">
+                <block wx:for="{{kind}}" wx:key="id">
+                    <view class="menu menu_last  {{TopIndex == index+1 ? 'bg-white':''}} " bindtap='changstyle' data-cid="{{item.cid}}" data-index="{{index}}">
+                        {{item.cname}}
+                    </view>
+                </block>
+                <view class="menu"></view>
+            </scroll-view>
+        </view>
+        <view class="flex-twice kind_data">
+            <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscroll="scrolltoupper" enhanced="true" data-type="add" enable-back-to-top="true" style="flex: 1;height: 1px;">
+                <block wx:for="{{kind2}}" wx:key="id">
+                    <view class="kinds" bindtap='to_changstyle' data-cid="{{item.cid}}" data-index="{{index}}">
+                        {{item.cname}}
+                        <view style="float:right">
+                            <text class="cuIcon-right lg text-gray"></text>
+                        </view>
+                    </view>
+                    <view style="display:flex;flex-direction: row; padding: 0 20rpx;">
+                        <block wx:for="{{item.categoryList}}" wx:for-item="items" wx:for-index="indexs">
+                            <view class="kinds3" bindtap='to_changstyle' data-cid="{{items.cid}}" data-index="{{indexs}}">
+                                {{items.cname}}
+                            </view>
+                        </block>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+        <view class="gotop" hidden='{{!cangotop}}' catchtap="goTop">
+            <text class="cuIcon-top text-gray"></text>
+        </view> -->
+    </view>
+</view>
+<view class="inputs_but flex"></view>

@@ -1,0 +1,133 @@
+/* pages/user/user.wxss */
+
+/* 共用部分 */
+icon{
+  font-size: 20px;
+}
+
+
+/* user部分 */
+.user{
+width: 90%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-top: 50rpx;
+margin-left: 30rpx;
+}
+.user-inf{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.user-img{
+width: 120rpx;
+height: 120rpx;
+}
+.user-inf-des{
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+  height: 120rpx;
+}
+.user-fixe-up{
+  display: flex;
+  align-items: flex-start;
+  height: 50rpx;
+}
+.user-fixe-down{
+  display: flex;
+  align-items: flex-end;
+  height: 60rpx;
+}
+.user-inf-name{
+font-size: 30rpx;
+font-weight: 600;
+
+}
+/* 导航部分 */
+
+.user-nav{
+  margin: 30rpx auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+.nav-class,.nav-usermain{
+  padding: 5rpx 40rpx;
+  background-color: aliceblue;
+  border-radius: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.nav-class icon , .nav-usermain icon{
+font-size: 30px;
+margin-right: 10rpx;
+color: rgb(43, 101, 226);
+
+}
+.nav-icon-text{
+font-size: 20px;
+font-weight: 400;
+}
+
+
+/* 子导航部分 */
+.sub-nav{
+  margin: 30rpx auto;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sub-nav-record,.sub-nav-Collection,.sub-nav-activity{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.sub-nav-record icon,.sub-nav-Collection icon,.sub-nav-activity icon{
+font-size: 30px;
+}
+.sub-nav-title{
+font-size: 17px;
+font-weight: 400;
+margin-top: 20rpx;
+}
+.sub-nav-des{
+  margin-top: 10rpx;
+font-size: 25rpx;
+font-weight: 100;
+color: rgba(0, 0, 0,.8);
+}
+
+/* 列表部分 */
+
+.list{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 50rpx auto; 
+}
+.list-msg{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 30rpx;
+}
+.list-main{
+display: flex;
+align-items: center;
+}
+.list-icon-l{
+font-size:60rpx;
+}
+.list-icon-r{
+font-size:60rpx;
+}
+.list-text{
+margin-left: 30rpx;
+}
+

@@ -1,0 +1,12 @@
+<wxs src="../../utils/index.wxs" module="app"></wxs>
+<view>
+    <view  class="subject"  wx:for="{{ subject }}" wx:for-index="index" wx:key="id">
+        <view class="auto_image">
+            <image class="sub_image" src="{{ item.name }}" />
+        </view>
+        <view class="flex solid-bottom padding justify-end">
+            <view class="cu-tag line-blue" bindtap="knowledge_exam">知识点讲解</view>
+            <view class="cu-tag line-blue" bindtap="conduct_exam">练习题</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,4 @@
+.pastbuy_data_books{
+    padding: 20rpx 0 20rpx 0;
+    border-top: 1px solid gainsboro;
+}

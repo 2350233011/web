@@ -1,0 +1,70 @@
+<view class='changeInfo' wx:if="{{ show }}">
+    <image class="logo" src="../../images/logo.png" />
+    <view class='changeInfoName'>
+        <input placeholder='请输入手机号' bindinput='getPhoneValue' value='{{phone}}' />
+    </view>
+    <view class='changeInfoName'>
+        <input placeholder='请输入邀请码' bindinput='getPassValue' value='{{pass}}' />
+    </view>
+    <button class='changeBtn' bindtap='save'>注册</button>
+    <view class="radio-section">
+        <radio-group bindchange="radioChange">
+            <radio></radio>
+            我已阅读并同意
+            <text class="text-blue" bind:tap="theorder_allot">《用户服务协议》</text>
+        </radio-group>
+    </view>
+</view>
+<view wx:else class="bg-white flex-sub radius shadow-lg loading">
+    <image src="../../images/login/loading.gif" mode="aspectFit" class="gif-white response" style="height:400rpx"></image>
+</view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">用户服务协议</view>
+            <view class="action" bindtap="hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl goods_datas">
+            <scroll-view scroll-y="true" style="height: 500rpx;">
+                在本协议中除另有定义的以外，以下用语具有以下含意：“适用法律”包括与本协议和担保文件的签署、提交、履行、
+            有效性和可执行性相关的新加坡、香港和中华人民共和国的任何宪法、条约、法令、各级立法、普通法、惯例法及司法判例；
+            “转让契约”包括保险单转让契约、销售收入转让契约、租金收入的转让契约和贷款人凭其自主决定而不时要求的其他转让契约；
+            “保险单转让契约”是指将由公司保证人和_________按照本协议附件a的格式或贷款人指定的其它格式，单独或共同签署的、
+            以贷款人为第一受益人的转让保险单（及保险单的所有权利、权益和利益）的保险单转让契约；
+            在本协议中除另有定义的以外，以下用语具有以下含意：“适用法律”包括与本协议和担保文件的签署、提交、履行、
+            有效性和可执行性相关的新加坡、香港和中华人民共和国的任何宪法、条约、法令、各级立法、普通法、惯例法及司法判例；
+            “转让契约”包括保险单转让契约、销售收入转让契约、租金收入的转让契约和贷款人凭其自主决定而不时要求的其他转让契约；
+            “保险单转让契约”是指将由公司保证人和_________按照本协议附件a的格式或贷款人指定的其它格式，单独或共同签署的、
+            以贷款人为第一受益人的转让保险单（及保险单的所有权利、权益和利益）的保险单转让契约；
+            在本协议中除另有定义的以外，以下用语具有以下含意：“适用法律”包括与本协议和担保文件的签署、提交、履行、
+            有效性和可执行性相关的新加坡、香港和中华人民共和国的任何宪法、条约、法令、各级立法、普通法、惯例法及司法判例；
+            “转让契约”包括保险单转让契约、销售收入转让契约、租金收入的转让契约和贷款人凭其自主决定而不时要求的其他转让契约；
+            “保险单转让契约”是指将由公司保证人和_________按照本协议附件a的格式或贷款人指定的其它格式，单独或共同签署的、
+            以贷款人为第一受益人的转让保险单（及保险单的所有权利、权益和利益）的保险单转让契约；
+            在本协议中除另有定义的以外，以下用语具有以下含意：“适用法律”包括与本协议和担保文件的签署、提交、履行、
+            有效性和可执行性相关的新加坡、香港和中华人民共和国的任何宪法、条约、法令、各级立法、普通法、惯例法及司法判例；
+            “转让契约”包括保险单转让契约、销售收入转让契约、租金收入的转让契约和贷款人凭其自主决定而不时要求的其他转让契约；
+            “保险单转让契约”是指将由公司保证人和_________按照本协议附件a的格式或贷款人指定的其它格式，单独或共同签署的、
+            以贷款人为第一受益人的转让保险单（及保险单的所有权利、权益和利益）的保险单转让契约；
+            在本协议中除另有定义的以外，以下用语具有以下含意：“适用法律”包括与本协议和担保文件的签署、提交、履行、
+            有效性和可执行性相关的新加坡、香港和中华人民共和国的任何宪法、条约、法令、各级立法、普通法、惯例法及司法判例；
+            “转让契约”包括保险单转让契约、销售收入转让契约、租金收入的转让契约和贷款人凭其自主决定而不时要求的其他转让契约；
+            “保险单转让契约”是指将由公司保证人和_________按照本协议附件a的格式或贷款人指定的其它格式，单独或共同签署的、
+            以贷款人为第一受益人的转让保险单（及保险单的所有权利、权益和利益）的保险单转让契约；
+            在本协议中除另有定义的以外，以下用语具有以下含意：“适用法律”包括与本协议和担保文件的签署、提交、履行、
+            有效性和可执行性相关的新加坡、香港和中华人民共和国的任何宪法、条约、法令、各级立法、普通法、惯例法及司法判例；
+            “转让契约”包括保险单转让契约、销售收入转让契约、租金收入的转让契约和贷款人凭其自主决定而不时要求的其他转让契约；
+            “保险单转让契约”是指将由公司保证人和_________按照本协议附件a的格式或贷款人指定的其它格式，单独或共同签署的、
+            以贷款人为第一受益人的转让保险单（及保险单的所有权利、权益和利益）的保险单转让契约；
+            </scroll-view>
+        </view>
+        <view class="cu-bar bg-white justify-end">
+            <view class="btn-margin">
+                <!-- <button class="cu-btn line-red text-blue" bindtap="hideModal">取消</button> -->
+                <button class="cu-btn bg-blue" bindtap="financing">确定</button>
+            </view>
+        </view>
+    </view>
+</view>

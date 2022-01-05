@@ -1,0 +1,230 @@
+<wxs src="../../../utils/change.wxs" module="app"></wxs>
+<scroll-view scroll-x class="bg-white nav text-center operation">
+    <block wx:for="{{group_info}}">
+        <view wx:if="{{item.power == true}}" class="cu-item {{TopIndex == item.id ? 'conduct':''}} " bindtap='changstyle' data-index="{{item.id}}">
+            {{item.name}}
+        </view>
+    </block>
+</scroll-view>
+<view wx:if="{{order_info.length > 0}}" class="input_data">
+    <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscroll="scrolltoupper" refresher-enabled="true" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh" enhanced="true" data-type="add" enable-back-to-top="true" style="flex: 1;height: 1px;">
+        <block wx:for="{{order_info}}">
+            <view wx:if="{{TopIndex == item.state || (item.state == group_info[4].id && TopIndex == group_info[3].id)}}" class="data_top">
+                <view class="data_body">
+                    <view class="flex padding-sm justify-between clarify_top">
+                        <view class="radius">
+                            <text class="cuIcon-shop lg text-blue"></text>
+                            {{item.shopName}}
+                        </view>
+                        <view class="radius">
+                            订单状态:{{app.toFind(states,"id",item.state,"name")}}
+                        </view>
+                    </view>
+                    <view class="line"></view>
+                    <!-- data-id="{{item.orderId}}" bindtap="toOrderDetail" 查看订单详情 -->
+                    <view class="flex padding pastbuy">
+                        <view class="flex-sub pastbuy_img">
+                            <image src="{{item.itemPic}}" />
+                        </view>
+                        <view class="flex-twice theorder_title">
+                            <view class="limitLine2">{{item.itemName}}</view>
+                        </view>
+                        <view class="flex-twice pastbuy_data">
+                            <view>
+                                金额:
+                                <text>￥{{item.allunitprice}}</text>
+                            </view>
+                            <view>
+                                单价:
+                                <text>￥{{item.unitprice}}</text>
+                            </view>
+                            <view>
+                                数量:
+                                <text>X {{item.quantity}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="line"></view>
+                    <block wx:if="{{!item.subordinate}}">
+                        <view wx:if="{{item.b2BOrderList.length == 0 && !item.subordinate}}" style="text-align: center;">
+                            暂无子订单
+                        </view>
+                        <view wx:for="{{item.b2BOrderList}}" wx:for-item="items" wx:for-index="indexs" class="data_top">
+                            <view class="data_body2">
+                                <view class="flex padding-sm justify-between clarify_top">
+                                    <view class="radius">
+                                        <text class="cuIcon-shop lg text-blue"></text>
+                                        {{items.shopName}}
+                                    </view>
+                                    <view class="radius">
+                                        订单状态:{{app.toFind(states,"id",items.state,"name")}}
+                                    </view>
+                                </view>
+                                <view class="line"></view>
+                                <!-- data-id="{{item.orderId}}" bindtap="toOrderDetail" 查看订单详情 -->
+                                <view class="flex padding pastbuy">
+                                    <view class="flex-sub pastbuy_img">
+                                        <image src="{{items.itemPic}}" />
+                                    </view>
+                                    <view class="flex-twice theorder_title">
+                                        <view class="limitLine2">{{items.itemName}}</view>
+                                    </view>
+                                    <view class="flex-twice pastbuy_data">
+                                        <view>
+                                            金额:
+                                            <text>￥{{items.allunitprice}}</text>
+                                        </view>
+                                        <view>
+                                            金额:
+                                            <text>￥{{items.unitprice}}</text>
+                                        </view>
+                                        <view>
+                                            数量:
+                                            <text>X {{items.quantity}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="line"></view>
+                                <view class="flex padding-sm justify-between clarify_top">
+                                    <view class="flex-sub"></view>
+                                    <view class="flex-sub"></view>
+                                    <view class="flex-sub text-right">
+                                        <button wx:if="{{items.state == 6}}" data-id="{{items.id}}" data-indexs="{{indexs}}" data-index="{{index}}" class="cu-btn round bg-blue shadow" data-target="DialogModal1" bind:tap="the_goods">
+                                            收货
+                                        </button>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="data_body">
+                        <view wx:if="{{item.state == group_info[4].id || item.state == group_info[5].id || item.state == group_info[6].id}}" class="receiving">
+                            <view class="flex">
+                                <view class="flex-sub">实际数量:</view>
+                                <view class="flex-treble">{{item.actualQuantity}}</view>
+                            </view>
+                            <view class="flex">
+                                <view class="flex-sub">实际重量:</view>
+                                <view class="flex-treble">{{item.actualWeight}}</view>
+                            </view>
+                            <!-- <view class="flex">
+                                <view class="flex-sub">实际单价:</view>
+                                <view class="flex-treble">{{item.actualQuantity}}</view>
+                            </view> -->
+                        </view>
+                    </view>
+                    <view class="flex padding-sm justify-between clarify_top">
+                        <block wx:if="{{item.state != group_info[0].id && item.state != group_info[1].id}}">
+                            <view class="flex-sub"></view>
+                            <view wx:if="{{item.subordinate}}" class="flex-sub text-center subordinate" data-index="{{index}}" bindtap="subordinate">
+                                <text>点击查看子订单</text>
+                                <text class="cuIcon-unfold"></text>
+                            </view>
+                            <view wx:else class="flex-sub text-center subordinate" data-index="{{index}}" bindtap="subordinate">
+                                <text>点击隐藏</text>
+                                <text class="cuIcon-fold"></text>
+                            </view>
+                        </block>
+                        <view class="flex-sub text-right">
+                            <button wx:if="{{item.state==group_info[0].id}}" data-id="{{item.id}}" data-index="{{index}}" class="cu-btn round bg-red" bind:tap="cancel">
+                                取消订单
+                            </button>
+                            <button wx:if="{{item.state==group_info[0].id}}" data-id="{{item.id}}" data-index="{{index}}" class="cu-btn round bg-blue" bind:tap="receive1">
+                                接收订单
+                            </button>
+                            <button wx:if="{{item.state==group_info[1].id}}" data-id="{{item.id}}" data-index="{{index}}" class="cu-btn round bg-blue" bind:tap="theorder_allot" data-index="{{index}}">
+                                分配订单
+                            </button>
+                            <button wx:if="{{item.state==group_info[2].id}}" data-type="fahuo" data-id="{{item.id}}" data-index="{{index}}" data-allnum="{{item.quantity}}" class="cu-btn round bg-blue shadow" data-target="DialogModal1" bind:tap="the_goods">
+                                发货
+                            </button>
+                            <button wx:if="{{item.state==group_info[3].id}}" class="cu-btn round">
+                                等待确认
+                            </button>
+                            <button wx:if="{{item.state==group_info[4].id}}" data-id="{{item.id}}" data-index="{{index}}" class="cu-btn round bg-blue" bind:tap="receive2">
+                                确认订单
+                            </button>
+                            <button wx:if="{{item.state==group_info[5].id}}" data-id="{{item.id}}" data-index="{{index}}" class="cu-btn round" bind:tap="to_theorder_detail">
+                                查看明细
+                            </button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+</view>
+<view wx:else class="text-center padding">暂无订单</view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">确认订单</view>
+            <view class="action" bindtap="hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl goods_datas">
+            <view class="flex goods_data">
+                <text class="text-important"></text>
+                <view class="flex-sub">应收:</view>
+                <view class="flex-twice">{{old_number}}</view>
+                <view class="flex-sub"></view>
+            </view>
+            <view class="line"></view>
+            <view class="flex goods_data">
+                <text class="text-important">*</text>
+                <view class="flex-sub">实收:</view>
+                <view class="flex-twice">
+                    <input bindinput="getNumber" value="{{number}}" class="weui-input" type="number" placeholder="请输入" />
+                </view>
+                <view class="flex-sub"></view>
+            </view>
+            <view class="line"></view>
+            <view class="flex goods_data">
+                <text class="text-important">*</text>
+                <view class="flex-sub">重量:</view>
+                <view class="flex-twice">
+                    <input bindinput="getWeight" value="{{weight}}" class="weui-input" type="number" placeholder="请输入" />
+                </view>
+                <view class="flex-sub">KG</view>
+            </view>
+            <view class="line"></view>
+            <view class="flex goods_data">
+                <text class="text-important">*</text>
+                <view class="flex-sub">单价:</view>
+                <view class="flex-twice">
+                    <input bindinput="getPrice" value="{{price}}" class="weui-input" type="number" placeholder="请输入" />
+                </view>
+                <view class="flex-sub">元</view>
+            </view>
+            <view class="line"></view>
+            <!-- <view class="flex goods_data">
+                <view class="flex-sub">总价:</view>
+                <view class="flex-twice">
+                    <input class="weui-input" type="number" placeholder="请输入" />
+                </view>
+                <view class="flex-sub">元</view>
+            </view> -->
+            <!-- <view class="line"></view> -->
+            <!-- <view class="flex goods_data">
+                <view class="flex-sub">订单供货时间：</view>
+                <view class="flex-twice">{{date}}</view>
+            </view>
+            <view class="line"></view>
+            <view class="flex goods_data">
+                <view class="flex-sub">实际供货时间：</view>
+                <view class="flex-twice">
+                    <picker mode="date" value="{{date}}" start="2020-01-01" end="2060-01-01" bindchange="DateChange">
+                        <view class="picker">{{date}}</view>
+                    </picker>
+                </view>
+            </view> -->
+        </view>
+        <view class="cu-bar bg-white justify-end">
+            <view>
+                <button class="cu-btn line-red text-blue" bindtap="hideModal">取消</button>
+                <button class="cu-btn bg-blue" bindtap="deliver_goods">确定</button>
+            </view>
+        </view>
+    </view>
+</view>

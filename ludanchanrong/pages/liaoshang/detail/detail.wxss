@@ -1,0 +1,114 @@
+.detail_top {
+    margin: 20rpx;
+    border-radius: 10rpx;
+    background-color: #1DBC5B;
+    height: 350rpx;
+}
+
+.detail_deal, .detail_source {
+    margin: 20rpx;
+    border-radius: 10rpx;
+    background-color: white;
+}
+
+.detail_top_data {
+    color: white;
+    text-align: left;
+    margin: 10rpx;
+    padding: 10rpx;
+    padding-top: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.detaile_top_all {
+    color: white;
+    padding: 10rpx;
+    margin: 10rpx;
+}
+
+.detail_top_data1 {
+    font-size: 36rpx;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.detail_top_data2 {
+    height: 120rpx;
+    margin-top: 30rpx;
+    font-size: 60rpx;
+}
+
+.line {
+    margin: 0 auto;
+    width: 90%;
+    height: 2rpx;
+    background: gainsboro;
+}
+
+.detail_source, .detail_deal {
+    padding: 10rpx;
+}
+
+._title {
+    font-size: 30rpx;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+}
+
+.gengduo {
+    text-align: right;
+}
+
+.gengduo text {
+    color: gray;
+    font-size: 24rpx;
+}
+
+.margin_detail, .margin_deal {
+    margin: 40rpx 20rpx 20rpx 20rpx;
+}
+
+.detail_data {
+    padding: 5rpx 0;
+    text-align: center;
+    border-bottom: 1px solid gainsboro;
+}
+
+.detail_data1 {
+    margin-top: 10rpx;
+    padding: 5rpx 0;
+    text-align: center;
+    /* border-bottom: 1px solid gainsboro; */
+}
+
+.gengduo .text_color {
+    font-size: 30rpx;
+    color: #1DBC5B;
+}
+
+.gengduo .text_color2 {
+    font-size: 30rpx;
+    color: red;
+}
+
+.deal_out_title {
+    padding: 5rpx 0;
+    border-bottom: 1px solid gainsboro;
+}
+
+.detail_deal_data {
+    margin: 10rpx 0;
+}
+
+.detail_deal_data1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.deal_data2 {
+    font-size: 24rpx;
+}
+
+.deal_out_title {
+    margin-bottom: 10rpx;
+}

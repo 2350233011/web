@@ -1,0 +1,68 @@
+<view class="cu-bar search bg-white">
+    <view class="action">
+        <view class='select_box'>
+            <view class='select' catchtap='selectTap'>
+                {{type_selectData[type_index]}}
+                <text class="cuIcon-triangledownfill"></text>
+            </view>
+            <view class='option_box {{type_show?"border_show":""}}' style='height:{{type_show?120:0}}rpx;'>
+                <view class='option' wx:for='{{type_selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>
+                    {{item}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="搜索{{type_selectData[type_index]}}" value="{{inputValue}}" bindconfirm="search" bindinput="bindKeyInput" confirm-type="search"></input>
+    </view>
+    <view class="action" style="width:150rpx">
+        <button class="cu-btn bg-blue round" bindtap="search">搜索</button>
+    </view>
+</view>
+<view class="body_top nav">
+    <scroll-view scroll-x="true" style="width: 100%" class="bg-white nav operation">
+        <view class="cu-item {{shopsIndex == 0 ? 'conduct':''}} " bindtap='changstyle_shops' data-shops="" data-index="0">
+            推荐
+        </view>
+        <block wx:for="{{shops_list}}">
+            <view class="cu-item {{shopsIndex == index+1 ? 'conduct':''}} " bindtap='changstyle_shops' data-shops="{{item.shopId}}" data-index="{{index+1}}">
+                {{item.shopName}}
+            </view>
+        </block>
+    </scroll-view>
+</view>
+<view class="flex">
+    <view class="basis-xs input_menu">
+        <scroll-view scroll-y="true" style="flex: 1;height: 1px;">
+            <!-- <view class="menu  {{TopIndex == 0 ? 'bg-white':''}}" bindtap='changstyle' data-cate="" data-index="0">
+                全部
+            </view> -->
+            <block wx:for="{{kind}}" wx:key="id">
+                <view class="menu menu_last  {{TopIndex == index ? 'bg-white':''}} " bindtap='changstyle' data-cate="{{item.cid}}" data-index="{{index}}">
+                    {{item.cname}}
+                </view>
+            </block>
+            <view class="menu" bindtap='changstyle' data-cate="" data-index="0"></view>
+        </scroll-view>
+    </view>
+    <view class="basis-xl input_data">
+        <!-- bindscrolltolower="get_threeClassifications" -->
+        <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscroll="scrolltoupper" enhanced="true" data-type="add" enable-back-to-top="true" style="flex: 1;height: 1px;">
+            <view class="input_datas">
+                <block wx:for="{{inputs_info}}" wx:key="id">
+                    <!-- wx:if="{{item.cid == kind[TopIndex-1].cid || TopIndex == 0}}" -->
+                    <view class="padding goods" bind:tap="to_inputs_detail" data-skuid="{{item.skuId}}" data-itemid="{{item.itemId}}">
+                        <!-- <text class="stiltle">{{item.shopName}}</text> -->
+                        <image src="{{item.picUrl}}" />
+                        <text>{{item.itemName}}</text>
+                        <text class="text-red">￥{{item.skuPrice}}</text>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="gotop" hidden='{{!cangotop}}' catchtap="goTop">
+        <text class="cuIcon-top text-gray"></text>
+    </view>
+</view>

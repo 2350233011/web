@@ -1,0 +1,131 @@
+.user_change {
+    display: flex;
+    flex-direction: row;
+    height: 200rpx;
+}
+
+.pastbuy {
+    padding: 20rpx;
+}
+
+.currentWordNumber {
+    font-size: 28rpx;
+    color: gray;
+    position: absolute;
+    left: 630rpx;
+    top: 150rpx;
+}
+
+.data_body {
+    background-color: white;
+    margin: 20rpx;
+    border-radius: 10rpx;
+}
+
+.goods_data {
+    margin: 0;
+}
+
+.goods_img {
+    display: flex;
+    align-items: center;
+}
+
+.goods_img image {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 0 auto;
+}
+
+.goods_user {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.goods_user view {
+    margin-right: 10rpx;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+}
+
+.update_goods {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse
+}
+
+.update_goods view {
+    margin: 0 auto;
+    padding: 5rpx 20rpx;
+    font-size: 20rpx;
+    background-color: gainsboro;
+    border-radius: 25rpx;
+    border: 1rpx solid gainsboro;
+}
+
+.user_code {
+    line-height: 64rpx;
+}
+
+.inputs_but {
+    background-color: white;
+    border-top: 1px solid gainsboro;
+    margin-bottom: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: row-reverse;
+}
+
+.inputs_but button {
+    width: 30%;
+    margin-right: 20rpx;
+}
+
+.slave_scroll {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.updata_slace {
+    margin: 0 auto;
+    padding: 10rpx;
+    font-size: 20rpx;
+    background-color: #dcdcdc80;
+    border-radius: 50rpx;
+    border: 1rpx solid gainsboro;
+}
+
+.remind_error {
+    border: 1rpx solid red;
+}
+
+.slave_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.slace_data {
+    padding: 10rpx;
+    margin: 10rpx;
+    text-align: center;
+    border: 1rpx solid gainsboro;
+    background-color: #dcdcdc80;
+    border-radius: 10rpx;
+    width: 200rpx;
+    margin-right: 20rpx;
+}
+
+.del_slace {
+    float: right;
+    position: relative;
+    left: 5rpx;
+    top: -30%;
+}

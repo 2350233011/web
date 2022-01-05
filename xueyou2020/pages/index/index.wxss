@@ -1,0 +1,70 @@
+/* 模态框 */
+.cu-bar {
+  min-height: 50rpx;
+}
+
+.cuIcon-close {
+  color: gray;
+  font-weight: 800;
+}
+
+.Ranking_List {
+  background-size: cover;
+  height: 1000rpx;
+
+}
+.ranking0{
+  margin: 20rpx 45rpx;
+  font-size: 14px;
+}
+.ranking1 {
+  height: 100rpx;
+  margin: 20rpx 45rpx;
+  border-radius: 10px;
+  background-color: #fb681a;
+}
+.ranking {
+  height: 100rpx;
+  margin: 20rpx 40rpx;
+  border-radius: 10px;
+  background-color: #ffad69;
+}
+.ranking_center{
+  display: flex;
+  align-items: center;
+}
+.one{
+  margin-left: -3%;
+}
+.one image{
+  height: 110rpx;
+  width: 110rpx;
+}
+.ranking_img image{
+  height: 60rpx;
+  width: 60rpx;
+}
+/* 临时显示 */
+.shadow-blur{
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.images{
+  height: 80rpx;
+  width: 80rpx;
+  margin-right: 20rpx;
+}
+.title_left{
+  padding: 20rpx;
+  background-color:  #F1F1F1;
+}
+.index_top{
+  width: 100%;
+  background-color: white;
+  padding: 10rpx;
+}
+.font_color{
+  color: black;
+  font-size: 14px;
+}

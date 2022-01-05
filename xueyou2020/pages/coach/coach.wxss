@@ -1,0 +1,15 @@
+.shadow-blur{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.images{
+    height: 80rpx;
+    width: 80rpx;
+    margin-right: 20rpx;
+}
+.tips{
+    margin: 30rpx auto;
+    font-size: 20px;
+    text-align: center;
+}

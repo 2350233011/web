@@ -1,0 +1,81 @@
+<wxs src="../../../utils/change.wxs" module="app"></wxs>
+<scroll-view scroll-x class="bg-white nav text-center operation">
+    <block wx:for="{{group_info}}">
+        <view class="cu-item {{TopIndex == item.id ? 'conduct':''}} " bindtap='changstyle' data-index="{{item.id}}">
+            {{item.name}}
+        </view>
+    </block>
+</scroll-view>
+<view wx:if="{{order_info.length > 0}}" class="input_data">
+    <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscroll="scrolltoupper" refresher-enabled="true" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh" enhanced="true" data-type="add" enable-back-to-top="true" style="flex: 1;height: 1px;">
+        <block wx:for="{{order_info}}">
+            <view wx:if="{{TopIndex == item.state}}" class="data_top">
+                <view class="data_body">
+                    <view class="flex padding-sm justify-between clarify_top">
+                        <view class="radius">
+                            <text class="cuIcon-shop lg text-blue"></text>
+                            {{item.shopName}}
+                        </view>
+                        <view class="radius">
+                            订单状态:{{app.toFind(states,"id",item.state,"name")}}
+                        </view>
+                    </view>
+                    <view class="line"></view>
+                    <view class="flex padding pastbuy" data-id="{{item.id}}" data-index="{{index}}" data-state="{{item.state}}" bindtap="toOrderDetail">
+                        <view class="flex-sub pastbuy_img">
+                            <image src="{{item.itemPic}}" />
+                        </view>
+                        <view class="flex-twice theorder_title">
+                            <view class="limitLine2">{{item.itemName}}</view>
+                            <view class="text-gray text-sm">{{item.skuName}}</view>
+                        </view>
+                        <view class="flex-twice pastbuy_data">
+                            <view>
+                                定单金额:
+                                <text>￥{{item.unitprice}}</text>
+                            </view>
+                            <view>
+                                定单数量:
+                                <text>X {{item.quantity}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <!-- <block wx:for="{{item.itemInfoDTOS}}" wx:for-item="items" wx:for-index="indexs">
+                <view class="flex padding pastbuy" data-id="{{item.orderId}}" data-state="{{item.state}}" bindtap="toOrderDetail">
+                    <view class="flex-sub pastbuy_img">
+                        <image src="{{items.itemPicUrl}}" />
+                    </view>
+                    <view class="flex-twice theorder_title">
+                        <view class="limitLine2">{{items.itemName}}</view>
+                        <view class="text-gray text-sm">规格1</view>
+                    </view>
+                    <view class="flex-twice pastbuy_data">
+                        <view>
+                            定单金额:
+                            <text>￥{{items.numberPrice}}</text>
+                        </view>
+                        <view>
+                            定单数量:
+                            <text>X {{items.number}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block> -->
+                    <view class="line"></view>
+                    <view class="flex padding-sm justify-between clarify_top">
+                        <view class="radius"></view>
+                        <view class="radius">
+                            总金额￥{{item.allunitprice}}
+                        实付款￥
+                            <text class="text-xxl text-red">{{item.allunitprice}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+    <view class="gotop" hidden='{{!cangotop}}' catchtap="goTop">
+        <text class="cuIcon-top text-gray"></text>
+    </view>
+</view>
+<view wx:else class="text-center padding">暂无订单</view>

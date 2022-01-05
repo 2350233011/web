@@ -1,0 +1,18 @@
+<view class="grid col-2 padding-sm">
+    <view class="padding-sm" wx:for="{{elements}}" wx:key="id">
+        <view class="bg-gradual-{{ item.color }} padding radius shadow-blur" bindtap="Jump_btn" data-type="{{ item.key }}">
+            <view class="margin-top-sm text-Abc">
+                <image class="images" src="../../images/library/{{ item.type }}.png"></image>
+            </view>
+            <view class="text-lg">{{ item.title }}</view>
+        </view>
+    </view>
+    <!-- <view class="padding-sm" wx:for="{{element}}" wx:key="id">
+        <view class="bg-gradual-{{ item.color }} padding radius shadow-blur" bindtap="Jump_btn" data-type="{{ item.key }}">
+            <view class="margin-top-sm text-Abc">
+                <image class="images" src="../../images/library/{{ item.type }}.png"></image>
+            </view>
+            <view class="text-lg">{{ item.title }}</view>
+        </view>
+    </view> -->
+</view>

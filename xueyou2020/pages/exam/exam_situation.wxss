@@ -1,0 +1,89 @@
+.exam_btn_group {
+    position: fixed;
+    bottom: 0;
+    border: 1px solid gainsboro;
+    background-color: white;
+    width: 100%;
+    margin: 0;
+    z-index: 998;
+}
+
+.bg-green {
+    background-color: #1e90ff;
+}
+
+.text-green,
+.line-green,
+.lines-green {
+    color: #1e90ff;
+}
+
+.subject {
+    min-height: 950rpx;
+    margin-top: 20rpx;
+    background-color: white;
+}
+
+.selects {
+    border: 1px solid gainsboro;
+    margin: 20rpx;
+    border-radius: 5px;
+
+}
+
+.select {
+    border: 1px solid #1e90ff;
+    background-color: #1e8fff25;
+}
+
+.error {
+    border: 1px solid #ff1e1e;
+    background-color: #ff1e1e23;
+}
+
+.cu-form-group textarea {
+    border: 1px solid gainsboro;
+    margin: 20rpx auto;
+    padding: 10rpx;
+    border-radius: 5px;
+    height: 120rpx;
+    overflow: auto;
+}
+
+.cu-form-group .answer {
+    border: 1px solid gainsboro;
+    margin: 20rpx auto;
+    padding: 10rpx;
+    border-radius: 5px;
+    height: 360rpx;
+    overflow: auto;
+}
+
+/* 模态框 */
+.cu-modal .cu-dialog {
+    height: 800rpx;
+    z-index: 999;
+}
+
+.padding-xl {
+    height: 78%;
+    border-bottom: 1px solid gainsboro;
+    padding: 20rpx;
+    overflow: auto;
+}
+
+.dialog_bottom {
+    margin-top: 10rpx;
+    color: #1e90ff;
+    font-size: 14px;
+}
+
+.dialog_color {
+    background-color: #1e90ff;
+}
+.error_color{
+    background-color: #ff1e1eb0;
+}
+.answer{
+    margin-left: 20rpx;
+}

@@ -1,0 +1,30 @@
+<view>
+    <scroll-view scroll-x="true" class="tab fixed {{ tabFix }}" id="tab" scroll-into-view="{{intoView}}">
+        <view class="flex solid-bottom padding">
+            <view class="padding-xs radius" style="margin-left:-3%">排行榜</view>
+            <view class="padding-xs radius" style="margin-left:60rpx">账号</view>
+            <view class="padding-xs radius" style="margin-left:90rpx">姓名</view>
+            <view class="padding-xs radius" style="margin-left:70rpx">学校</view>
+            <view class="padding-xs radius" style="margin-left:75rpx">纠错</view>
+        </view>
+    </scroll-view>
+    <scroll-view>
+        <view class="cu-list exam">
+            <view class="flex solid-bottom padding">
+                <view class="padding-xs radius"></view>
+            </view>
+            <view class="flex solid-bottom padding-xs ranking" wx:for="{{ranking}}" wx:for-index="index" wx:key="phone">
+                <view class="padding-sm margin-xs cu-avatar radius conduct_lcon">
+                    <text>{{ index+1 }}</text>
+                </view>
+                <view class="padding-sm margin-xs radius">{{ item.phone }}</view>
+                <view class="padding-sm margin-xs radius">{{ item.name }}</view>
+                <view class="padding-sm margin-xs radius">{{ item.school }}</view>
+                <view class="padding-sm margin-xs radius">{{ item.num }}</view>
+            </view>
+        </view>
+    </scroll-view>
+    <view style="height: 110rpx;" class="flex justify-center">
+        <view class="padding-sm margin-xs" wx:if="{{ tips !== null }}">{{ tips }}</view>
+    </view>
+</view>

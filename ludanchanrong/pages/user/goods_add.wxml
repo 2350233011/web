@@ -1,0 +1,45 @@
+<view class="body">
+    <view class="margin_body">
+        <view class="flex body_data">
+            <view class="flex-sub">收货人</view>
+            <view class="flex-treble gengduo">
+                <input class="weui-input" maxlength="20" bindinput="getName" placeholder="" value="{{goods_info.contactperson}}" />
+            </view>
+        </view>
+        <view class="line"></view>
+        <view class="flex body_data">
+            <view class="flex-sub">手机号码</view>
+            <view class="flex-treble gengduo">
+                <input class="weui-input" maxlength="11" bindinput="getPhone" placeholder="" value="{{goods_info.contactphone}}" />
+            </view>
+        </view>
+        <view class="line"></view>
+        <view class="flex body_data">
+            <text class="flex-sub">选择地区</text>
+            <view class="flex-treble">
+                <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+                    <view class="picker" wx:if="{{region[0]}}">
+                        {{region[0]}}{{region[1]}}{{region[2]}}
+                        <text style="float:right;" class="cuIcon-right text-gray"></text>
+                    </view>
+                    <view class="picker" wx:else>
+                        {{goods_info.address}}
+                        <text style="float:right;" class="cuIcon-right text-gray"></text>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="line"></view>
+        <view class="flex body_data">
+            <text class="flex-sub">详细地址</text>
+            <view class="flex-treble gengduo">
+                <textarea maxlength="50" bindinput="getAddress" placeholder="" value="{{goods_info.fulladdress}}"></textarea>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="inputs_but flex">
+    <view class="flex-sub">
+        <button class="cu-btn round bg-blue" bindtap="save" data-index="">保存</button>
+    </view>
+</view>

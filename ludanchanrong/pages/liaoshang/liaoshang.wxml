@@ -1,0 +1,131 @@
+<wxs src="../../utils/change.wxs" module="app"></wxs>
+<view class="message">
+    <view class="flex message_top">
+        <view class="flex-sub headimg" bind:tap="to_user">
+            <image src="{{userinfo.avatarUrl}}" />
+        </view>
+        <view class="flex-treble message_money">
+            <view class="money_title">我的支出</view>
+            <!-- <view class="money_title2">剩余可用</view> -->
+            <view class="money_data">￥{{payTotal}}</view>
+            <!-- <view class='to_view' bindtap='to_lines'>查看明细</view> -->
+            <!-- <view class='to_view'>查看明细</view> -->
+        </view>
+        <view class="flex-sub message_data">
+            <text class="cuIcon-message text-white" data-type="liaoshang" bind:tap="to_message"></text>
+        </view>
+    </view>
+    <view class="flex message_bottom">
+        <!-- <view class="flex-sub money_all">
+            总计：
+            <text>900,000</text>
+        </view>
+        <view class="flex-sub money_used">
+            已用：
+            <text>287,739</text>
+        </view> -->
+    </view>
+</view>
+<view class="body">
+    <view class="body_margin body_theorder">
+        <view class="_title">我的订单</view>
+        <view class="flex theorder_data">
+            <view class="flex-sub">
+                <view wx:if="{{ unread[1].num > 0 && unread[1].num < 99}}" class="bg-red cornerMarker">
+                    {{unread[1].num}}
+                </view>
+                <view wx:elif="{{ unread[1].num >= 99}}" class="bg-red cornerMarker">99+</view>
+                <view wx:else class="cornerMarker"></view>
+                <view class=" theorder_1" bind:tap="to_theorder_inputs">
+                    <image class="theorder_logo" src="../../images/liaoshang/tourupin1.png" />
+                    投入品订单
+                </view>
+            </view>
+            <view class="flex-sub">
+                <view wx:if="{{ unread[0].num > 0 && unread[0].num < 99}}" class="bg-red cornerMarker">
+                    {{unread[0].num}}
+                </view>
+                <view wx:elif="{{ unread[0].num >= 99}}" class="bg-red cornerMarker">99+</view>
+                <view wx:else class="cornerMarker"></view>
+                <view class=" theorder_2" bind:tap="to_breed">
+                    <image style="position: relative; left: 6rpx; top: -6rpx" class="theorder_logo" src="../../images/liaoshang/yangzhi2.png" />
+                    养殖订单
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="body_margin body_buy">
+        <view class="flex _title">
+            <view class="flex-treble">投入品购买</view>
+            <view class="flex-sub gengduo" bind:tap="to_inputs">
+                <text>更多 ></text>
+            </view>
+        </view>
+        <view class="flex">
+            <block wx:for="{{inputs_info}}" wx:key="id">
+                <view class="flex-sub goods" bind:tap="to_inputs_detail" data-skuid="{{item.skuId}}" data-itemid="{{item.itemId}}">
+                    <!-- <text class="stiltle">{{item.shopName}}</text> -->
+                    <image src="{{item.picUrl}}" />
+                    <text class="limitLine2">{{item.itemName}}</text>
+                    <text class="text-red limitLine1">￥{{item.skuPrice}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="body_margin body_pastbuy">
+        <view class="flex _title">
+            <view class="flex-treble">近期投入品购买</view>
+            <view class="flex-sub gengduo" bind:tap="to_inputsall">
+                <text>更多 ></text>
+            </view>
+        </view>
+        <view class="margin_pastbuy">
+            <block wx:for="{{order_info}}">
+                <view class="data_top">
+                    <view class="data_body">
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius">
+                                <text class="cuIcon-shop lg text-blue"></text>
+                                {{item.shopName}}
+                            </view>
+                            <view class="radius">
+                                订单状态:{{app.toFind(states,"id",item.state,"name")}}
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <view class="flex padding pastbuy" data-id="{{item.id}}" data-index="{{index}}" data-state="{{item.state}}" bindtap="toOrderDetail">
+                            <view class="flex-sub pastbuy_img">
+                                <image src="{{item.itemPic}}" />
+                            </view>
+                            <view class="flex-twice theorder_title">
+                                <view class="limitLine2">{{item.itemName}}</view>
+                                <view class="text-gray text-sm">{{item.skuName}}</view>
+                            </view>
+                            <view class="flex-twice pastbuy_data">
+                                <view>
+                                    定单金额:
+                                    <text>￥{{item.unitprice}}</text>
+                                </view>
+                                <view>
+                                    定单数量:
+                                    <text>X {{item.quantity}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius"></view>
+                            <view class="radius">
+                                总金额￥{{item.allunitprice}}
+                        实付款￥
+                                <text class="text-xxl text-red">{{item.allunitprice}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+<!-- <view class="bottom"></view> -->
+<view style="height:100rpx"></view>

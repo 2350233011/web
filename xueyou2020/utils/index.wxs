@@ -1,0 +1,74 @@
+function indexOf(arr, key, valuetosearch) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i][key] == valuetosearch) {
+            return true;
+        }
+    }
+    return false;
+}
+function indexOf2(arr, valuetosearch) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == valuetosearch) {
+            return true;
+        }
+    }
+    return false;
+}
+//找sn
+function findIndex(arr, key, valuetosearch) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i][key] == valuetosearch) {
+            return arr[i].sn;
+        }
+    }
+    return -1;
+}
+//多选找sn
+function findIndex2(arr, key, valuetosearch) {
+    var arr_all = [], val= valuetosearch.toString().split(",");
+    for (var j = 0; j < val.length; j++) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i][key] == val[j]) {
+                arr_all=arr_all.concat(arr[i].sn);
+            }
+        }
+    }
+    return  arr_all;
+}
+//找下标
+function findIndex3(arr, key, valuetosearch) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i][key] == valuetosearch) {
+            return i;
+        }
+    }
+    return -1;
+}
+//多选找下标
+function findIndex4(arr, key, valuetosearch) {
+    var arr_all = [], val= valuetosearch.toString().split(",");
+    for (var j = 0; j < val.length; j++) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i][key] == val[j]) {
+                arr_all=arr_all.concat(i);
+            }
+        }
+    }
+    return  arr_all;
+}
+function conversion(arr) {
+    var arrs = arr.toString();
+    var str = arrs.split(',');
+    var abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    for (var i = 0; i < str.length; i++) {
+        str[i] = abc[str[i] - 1];
+    }
+    return str;
+}
+module.exports.indexOf = indexOf;
+module.exports.indexOf2 = indexOf2;
+module.exports.findIndex = findIndex;
+module.exports.findIndex2 = findIndex2;
+module.exports.findIndex3 = findIndex3;
+module.exports.findIndex4 = findIndex4;
+module.exports.conversion = conversion;

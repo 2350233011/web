@@ -1,0 +1,16 @@
+<view class='changeInfo' wx:if="{{ show }}">
+    <view class='changeInfoName'>
+        <input placeholder='请输入账号'  bindinput='getPhoneValue' value='{{phone}}' />
+    </view>
+    <view class='changeInfoName'>
+        <input placeholder='请输入密码'  password="true" bindinput='getPassValue' value='{{pass}}' />
+    </view>
+    <view class="operation">
+        <!-- <navigator url="forget" class="forget">忘记密码</navigator>
+        <navigator url="logon" class="logon">注册账号</navigator> -->
+    </view>
+    <button class='changeBtn' bindtap='save'>登录</button>
+</view>
+<view wx:else class="bg-white flex-sub radius shadow-lg loading">
+    <image src="../../images/login/loading.gif" mode="aspectFit" class="gif-white response" style="height:400rpx"></image>
+</view>

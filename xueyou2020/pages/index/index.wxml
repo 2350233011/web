@@ -1,0 +1,139 @@
+<!-- <view class="cu-bar search bg-white" style="padding: 20rpx;">
+    <view class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="找资料" confirm-type="search"></input>
+    </view>
+</view> -->
+<view class="box">
+    <view class="index_top">
+        <view class="cu-bar justify-left bg-white title_left">
+            <view class="action border-title">
+                <text class="text-xl text-bold text-blue">练习</text>
+                <text class="bg-gradual-blue" style="width:3rem"></text>
+            </view>
+        </view>
+        <view class="grid col-4 padding-sm">
+            <view class="padding-sm" wx:for="{{element}}" wx:key="id">
+                <view class="padding radius text-center" bindtap="Jump_btn" data-type="{{ item.key }}">
+                    <view class="text-lg">
+                        <image class="images" src="../../images/index/icon/{{ item.type }}.png"></image>
+                    </view>
+                    <view class="margin-top-sm text-Abc font_color">{{item.title}}</view>
+                </view>
+            </view>
+            <view class="padding-sm" wx:for="{{elements}}" wx:key="id">
+                <view class="padding radius text-center" bindtap="Jump_btn_record" data-type="{{ item.key }}">
+                    <view class="text-lg">
+                        <image class="images" src="../../images/index/icon/{{ item.type }}.png"></image>
+                    </view>
+                    <view class="margin-top-sm text-Abc font_color">{{item.title}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="index_top">
+        <view class="cu-bar justify-left bg-white title_left">
+            <view class="action border-title">
+                <text class="text-xl text-bold text-blue">考试</text>
+                <text class="bg-gradual-blue" style="width:3rem"></text>
+            </view>
+        </view>
+        <view class="grid col-3 padding-sm">
+            <view class="padding-sm" wx:for="{{exam}}" wx:for-index="index" wx:key="id">
+                <view class="padding radius" bindtap="conduct_exam" data-target="{{ index }}">
+                    <view class="text-lg">
+                        <image class="images" src="../../images/index/icon/kaoshi.png"></image>
+                    </view>
+                    <view class="margin-top-sm text-Abc font_color">{{item.title}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="index_top">
+        <view class="cu-bar justify-left bg-white title_left">
+            <view class="action border-title">
+                <text class="text-xl text-bold text-blue">辅导</text>
+                <text class="bg-gradual-blue" style="width:3rem"></text>
+            </view>
+        </view>
+        <view class="grid col-4 padding-sm">
+            <view class="padding-sm" wx:for="{{element2}}" wx:key="id">
+                <view class="padding radius text-center" bindtap="tixing" data-type="{{ item.key }}">
+                    <view class="text-lg">
+                        <image class="images" src="../../images/index/icon/{{ item.type }}.png"></image>
+                    </view>
+                    <view class="margin-top-sm text-Abc font_color">{{ item.title }}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view style="height:100rpx;" marl="留空"></view>
+<!-- 模态框 -->
+<!-- <view class="cu-modal {{modalName=='Image'?'show':''}}" catchtouchmove='filterViewMove'>
+    <view class="cu-dialog">
+        <view class="bg-img Ranking_List" style="background-image: url('images/index/ranking/modal.png')">
+            <view class="cu-bar justify-end text-white">
+                <view class="action" bindtap="hideModal">
+                    <text class="cuIcon-close"></text>
+                </view>
+            </view>
+            <view style="height:230rpx"></view>
+            <view class="ranking0 flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-twice">纠错排行榜</view>
+                <view class="flex-sub">账号</view>
+                <view class="flex-sub">姓名</view>
+                <view class="flex-twice">学校</view>
+                <view class="flex-sub">纠错</view>
+            </view>
+            <view class="ranking1 flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-sub one">
+                    <image src="/images/index/ranking/1.png" />
+                </view>
+                <view class="flex-twice">156****6178</view>
+                <view class="flex-sub">张三</view>
+                <view class="flex-twice">济南市体校</view>
+                <view class="flex-sub">13</view>
+            </view>
+            <view class="ranking flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-sub ranking_img">
+                    <image src="/images/index/ranking/2.png" />
+                </view>
+                <view class="flex-twice">156****6178</view>
+                <view class="flex-sub">李四</view>
+                <view class="flex-twice">淄博市体校</view>
+                <view class="flex-sub">10</view>
+            </view>
+            <view class="ranking flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-sub ranking_img">
+                    <image src="/images/index/ranking/3.png" />
+                </view>
+                <view class="flex-twice">156****6178</view>
+                <view class="flex-sub">王五</view>
+                <view class="flex-twice">潍坊市体校</view>
+                <view class="flex-sub">9</view>
+            </view>
+            <view class="ranking flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-sub ranking_img">
+                    <image src="/images/index/ranking/4.png" />
+                </view>
+                <view class="flex-twice">156****6178</view>
+                <view class="flex-sub">赵六</view>
+                <view class="flex-twice">青岛市体校</view>
+                <view class="flex-sub">8</view>
+            </view>
+            <view class="ranking flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-sub ranking_img">
+                    <image src="/images/index/ranking/5.png" />
+                </view>
+                <view class="flex-twice">156****6178</view>
+                <view class="flex-sub">张三</view>
+                <view class="flex-twice">临沂市体校</view>
+                <view class="flex-sub">7</view>
+            </view>
+        </view>
+        <view class="cu-bar bg-white">
+            <view class="action margin-0 flex-sub  solid-left" bindtap="to_ranking">查看更多</view>
+        </view>
+    </view>
+</view> -->

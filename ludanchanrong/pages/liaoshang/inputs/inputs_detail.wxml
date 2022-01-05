@@ -1,0 +1,123 @@
+<view class="body">
+    <view class="body_top">
+        <swiper class="screen-swiper square-dot goods_img" indicator-dots="true" circular="true" duration="500">
+            <swiper-item wx:for="{{swiperList}}" wx:key="index">
+                <image src="{{item.url}}" data-src="{{item.url}}" mode="aspectFit"></image>
+            </swiper-item>
+        </swiper>
+        <view class="title">{{inputs_info.itemName}}</view>
+        <view bindtap="to_shop" data-id="{{inputs_info.shopDTO.shopId}}">
+            <text class="cuIcon-shop lg text-blue"></text>
+            {{inputs_info.shopDTO.shopName}}
+        </view>
+    </view>
+    <view class="introduce">
+        <view class="introduce_title">规格参数</view>
+        <view class="line"></view>
+        <block wx:for="{{inputs_info.attrdetails}}">
+            <view class="introduce_body flex">
+                <view class="flex-sub">{{item.cKey}}：</view>
+                <view class="flex-twice">{{item.attrValue}}</view>
+                <view class="flex-sub"></view>
+            </view>
+        </block>
+    </view>
+    <view class="introduce">
+        <view class="introduce_title">商品详情</view>
+        <view class="line"></view>
+        <mp-html style="width: 100%;" content="{{inputs_info.describeUrl}}"></mp-html>
+    </view>
+    <view style="height:100rpx"></view>
+</view>
+<view class="inputs_but">
+    <view class="cu-bar bg-white tabbar border shop">
+        <view class="action" bindtap="to_shop" data-id="{{inputs_info.shopDTO.shopId}}">
+             <view class=" cuIcon-shop"></view>
+            店铺
+        </view>
+        <view class="action {{show_collection? 'text-orange':''}}" bindtap="collection" >
+            <view class="cuIcon-favorfill"></view>
+            {{show_collection? '已收藏':'收藏'}}
+        </view>
+        <view class="action"></view>
+        <view class="bg-blue submit text-xl" bindtap="showModal" data-target="bottomModal">立即订购</view>
+    </view>
+    <!-- <view class="flex-sub shop_logo" bindtap="to_shop" data-id="{{inputs_info.shopDTO.shopId}}">
+        <text class="cuIcon-shop text-blue"></text>
+        <view class="text-xs">店铺</view>
+    </view>
+    <view class="flex-sub shop_logo">
+    </view>
+    <view class="flex-treble">
+        <button class="cu-btn round bg-blue" bindtap="showModal" data-target="bottomModal">
+            下订单
+        </button>
+    </view> -->
+</view>
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" catchtouchmove='true'>
+    <view class="cu-dialog">
+        <view class="cu-bar skudto_title bg-white">
+            <view class="flex">
+                <view class="flex-sub">
+                    <image class="skudto_img" src="{{skudto_index ? inputs_info.skuDTOList[skudto_index].picUrl:swiperList[0].url}}" />
+                </view>
+                <view class="flex-sub">
+                    <view class="text-red text-xxl">
+                        ￥{{skudto_index ? inputs_info.skuDTOList[skudto_index].getSkuPriceResponse.price:inputs_info.skuDTOList[0].getSkuPriceResponse.price}}
+                    </view>
+                </view>
+            </view>
+            <view class="text-xxl" bindtap="hideModal">
+                <text class="cuIcon-roundclose text-gray"></text>
+            </view>
+        </view>
+        <view class="">
+            <view class="inputs_detail">
+                <view class="dto_title" data-id="{{inputs_info.attributeDTOList[0].id}}">
+                    {{inputs_info.attributeDTOList[0].name}}({{inputs_info.attributeDTOList[0].attributeValueDTOList.length}})
+                </view>
+                <view class="input_data">
+                    <block wx:for="{{inputs_info.attributeDTOList[0].attributeValueDTOList}}">
+                        <view class="goods {{skudto_index === index ? 'skudto_color':''}}" bind:tap="skudto_switch" data-index="{{index}}" data-attrid="{{item.attrId}}" data-valueid="{{item.valueId}}">
+                            {{item.valueName}}
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <view class="inputs_detail">
+                <view class="goods_datas">
+                    <view class="flex goods_data {{error_color ? 'error_color':''}}">
+                        <view class="flex-sub">采购量:</view>
+                        <view class="flex-twice">
+                            <input class="weui-input" type="number" bindfocus="error_color" bindinput="getinput_num" placeholder="请输入" />
+                        </view>
+                        <view class="flex-sub"></view>
+                    </view>
+                    <!-- <view class="line"></view>
+                    <view class="flex goods_data">
+                        <view class="flex-sub">收货人:</view>
+                        <view class="flex-twice">
+                            <view class="picker">
+                                {{picker_array[0].index?picker_array[0].picker[picker_array[0].index]:'请选择'}}
+                            </view>
+                        </view>
+                        <view class="flex-sub"></view>
+                    </view> -->
+                    <view class="line"></view>
+                    <view class="flex goods_data">
+                        <!-- <view class="flex-sub">供货时间：</view>
+                        <view class="flex-twice">
+                            <picker mode="date" value="{{date}}" start="2020-01-01" end="2060-01-01" bindchange="DateChange">
+                                <view class="picker">{{date}}</view>
+                            </picker>
+                        </view>
+                        <view class="flex-sub"></view> -->
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-bar bg-white">
+            <button class="cu-btn round bg-blue" bind:tap="succeed">立即购买 ￥{{input_allnum}}</button>
+        </view>
+    </view>
+</view>

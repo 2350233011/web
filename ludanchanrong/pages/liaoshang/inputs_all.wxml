@@ -1,0 +1,56 @@
+<view class="clarify_bottom">
+    <view class="cu-timeline">
+        <view class="cu-time">2021-04</view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex">
+                <text class="flex-treble">小鸡饲料|佳慧饲料</text>
+                <text class="flex-sub">X100kg</text>
+                <text class="flex-sub gengduo">-999元</text>
+            </view>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex">
+                <text class="flex-treble">小鸡饲料|佳慧饲料</text>
+                <text class="flex-sub">X100kg</text>
+                <text class="flex-sub gengduo">-999元</text>
+            </view>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex">
+                <text class="flex-treble">小鸡饲料|佳慧饲料</text>
+                <text class="flex-sub">X100kg</text>
+                <text class="flex-sub gengduo">-999元</text>
+            </view>
+            </view>
+        </view>
+    </view>
+    <view class="cu-timeline">
+        <view class="cu-time">2021-03</view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex">
+                <text class="flex-treble">小鸡饲料|佳慧饲料</text>
+                <text class="flex-sub">X100kg</text>
+                <text class="flex-sub gengduo">-999元</text>
+            </view>
+            </view>
+        </view>
+    </view>
+    <view class="cu-timeline">
+        <view class="cu-time">2021-02</view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex">
+                <text class="flex-treble">小鸡饲料|佳慧饲料</text>
+                <text class="flex-sub">X100kg</text>
+                <text class="flex-sub gengduo">-999元</text>
+            </view>
+            </view>
+        </view>
+    </view>
+</view>

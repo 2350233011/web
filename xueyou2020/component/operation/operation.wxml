@@ -1,0 +1,26 @@
+<view class="cu-bar tabbar margin-bottom-xl bg-black operation">
+    <view class="action text-orange">
+        <view class="cuIcon-homefill"></view>
+        首页
+    </view>
+    <view class="action text-gray">
+        <view class="cuIcon-similar"></view>
+        课堂
+    </view>
+    <view class="action text-gray">
+        <view class="cuIcon-recharge"></view>
+        辅导
+    </view>
+    <view class="action text-gray">
+        <view class="cuIcon-cart">
+            <view class="cu-tag badge">99</view>
+        </view>
+        考试
+    </view>
+    <view class="action text-gray">
+        <view class="cuIcon-my">
+            <view class="cu-tag badge"></view>
+        </view>
+        我的
+    </view>
+</view>

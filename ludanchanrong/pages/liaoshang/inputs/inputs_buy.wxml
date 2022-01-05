@@ -1,0 +1,154 @@
+<wxs src="../../../utils/change.wxs" module="app"></wxs>
+<wxs module="util">
+    var cut = function(str,num) {
+        if (str.length > num){
+            return str.substring(0, num) + "..."
+        }else{
+            return str
+        }
+    }
+    module.exports.cut = cut;
+</wxs>
+<view class="body">
+    <!-- <view class="body_top">
+        <view class="data_body">
+            <view class="flex pastbuy">
+                <view class="goods_img flex-sub">
+                    <image src="../../../images/liaoshang/weizhi.png" />
+                </view>
+                <view class="flex-treble">
+                    <view class="goods_user">
+                        <view class="user_name text-xl">{{isdefault.name}}</view>
+                    </view>
+                </view>
+                <view style="width:60rpx" class="flex-sub update_goods">
+                    <view bindtap="getgoods" data-target="bottomModal">修改收货人</view>
+                </view>
+            </view>
+        </view>
+    </view> -->
+    <view class="data_top">
+        <view class="data_body">
+            <view class="flex padding-sm justify-between clarify_top">
+                <view class="radius">
+                    <text class="cuIcon-shop lg text-blue"></text>
+                    {{inputs_info.shopDTO.shopName}}
+                </view>
+                <view class="radius"></view>
+            </view>
+            <view class="line"></view>
+            <view class="flex padding pastbuy" data-id="{{order_info.orderId}}" bindtap="toOrderDetail">
+                <view class="flex-sub pastbuy_img">
+                    <image src="{{inputs_info.skuDTOList[skudto_index].picUrl}}" />
+                </view>
+                <view class="flex-twice theorder_title">
+                    <view class="limitLine2">
+                        {{inputs_info.skuDTOList[skudto_index].itemName}}
+                    </view>
+                    <view class="text-gray text-sm">
+                        {{app.toFind(inputs_info.attributeDTOList[0].attributeValueDTOList,"valueId",attrValueId,"valueName")}}
+                    </view>
+                </view>
+                <view class="flex-twice pastbuy_data">
+                    <view>
+                        定单金额:
+                        <text>￥{{inputs_quantity}}</text>
+                    </view>
+                    <view>
+                        定单数量:
+                        <text>X {{inputs_num}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="padding flex">
+                <view wx:if="{{isdefault.length <= 0}}" class="flex-treble slave_list">
+                    <view class="text-gray">未选择收货人</view>
+                </view>
+                <view wx:else class="flex-treble slave_list">
+                    <block wx:for="{{isdefault}}">
+                        <view class="slace_data" bind:tap="del_slace" data-index="{{index}}">
+                            {{util.cut(item.name,4)}}
+                            <text class="cuIcon-roundclose text-gray del_slace"></text>
+                        </view>
+                    </block>
+                </view>
+                <view class="flet-sub">
+                    <view bindtap="getgoods" class="updata_slace {{remind_error?'remind_error':''}}" data-target="bottomModal">
+                        添加收货人
+                    </view>
+                </view>
+            </view>
+            <view class="line"></view>
+            <view class="flex padding-sm justify-between clarify_top">
+                <!-- 供货时间:{{date}} -->
+                <view class="radius"></view>
+                <view class="radius">
+                    总金额￥
+                    <text class="text-xxl text-red">{{input_allnum}}</text>
+                    <!-- <text>实付款￥{{order_info.paymentPrice}}</text> -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="height:100rpx"></view>
+</view>
+<view class="inputs_but flex">
+    <view class="flex-sub">
+        <button class="cu-btn round bg-blue" bindtap="succeed">提交订单</button>
+    </view>
+</view>
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" catchtouchmove='true'>
+    <view class="cu-dialog">
+        <view class="cu-bar skudto_title bg-white flex">
+            <view class="flex-sub"></view>
+            <view class="flex-twice text-xxl text-center">选择收货人</view>
+            <view class="text-xxl flex-sub" bindtap="hideModal" style="text-align:right;padding-right:20rpx">
+                <text class="cuIcon-roundclose text-gray"></text>
+            </view>
+        </view>
+        <checkbox-group bindchange="checkboxChange">
+            <view wx:if="{{slave_show == false}}" class="cu-dialog slave_scroll">
+                <!-- bindtap="update_goods data-index="{{index}}"" -->
+                <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscroll="scrolltoupper" enhanced="true" data-type="add" enable-back-to-top="true" style="flex: 1;height: 1px;">
+                    <view wx:for="{{slave_info}}" class="data_body" data-target="bottomModal">
+                        <label>
+                            <view class="flex pastbuy">
+                                <view class="goods_img flex-sub">
+                                    <image src="../../../images/liaoshang/weizhi.png" />
+                                </view>
+                                <view class="flex-treble">
+                                    <view class="goods_user">
+                                        <view class="user_name text-xl">{{item.name}}</view>
+                                        <view class="user_code text-sm text-grey">
+                                            {{item.code}}
+                                        </view>
+                                    </view>
+                                    <view class="goods_data text-sm limitLine2 text-left">
+                                        {{item.address}}
+                                    </view>
+                                </view>
+                                <view style="width:60rpx" class="flex-sub update_goods">
+                                    <checkbox value="{{index}}" checked="{{item.checked}}" class="round blue"></checkbox>
+                                </view>
+                            </view>
+                        </label>
+                    </view>
+                </scroll-view>
+            </view>
+            <view wx:else class="cu-dialog slave_scroll">
+                <view class="text-center padding margin">暂无关联养殖户</view>
+            </view>
+        </checkbox-group>
+        <view class="cu-bar bg-white">
+            <view class="cu-bar bg-white tabbar border shop" style="width:100%;">
+                <view class="action" bindtap="selectall">
+                    全选
+                    <checkbox class="round blue" checked="{{select_all}}" />
+                </view>
+                <view class="action"></view>
+                <view class="action"></view>
+                <view class="bg-blue submit text-xl" bindtap="addGoods">确认</view>
+            </view>
+        </view>
+    </view>
+</view>

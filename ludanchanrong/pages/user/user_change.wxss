@@ -1,0 +1,82 @@
+.user_change {
+    display: flex;
+    flex-direction: row;
+    height: 200rpx;
+}
+
+.currentWordNumber {
+    font-size: 28rpx;
+    color: gray;
+    position: absolute;
+    left: 630rpx;
+    top: 150rpx;
+}
+
+.data_body {
+    background-color: white;
+    margin: 20rpx;
+    border-radius: 10rpx;
+}
+
+.goods_data {
+    margin: 0;
+}
+
+.goods_user {
+    display: flex;
+    flex-direction: row;
+}
+
+.goods_user view {
+    margin: 10rpx;
+}
+
+.user_code {
+    line-height: 64rpx;
+}
+
+.goods_img {
+    display: flex;
+    align-items: center;
+}
+
+.goods_img image {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 0 auto;
+}
+
+.radio-section {
+    display: flex;
+    align-items: center;
+}
+
+.radio-section radio {
+    zoom: 80%;
+    font-size: 80%;
+    margin-right: 10rpx;
+}
+
+.inputs_but {
+    padding: 20rpx;
+    background-color: white;
+    border-top: 1px solid gainsboro;
+    margin-bottom: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.inputs_but .cu-btn {
+    width: 100%;
+}
+
+.goods_menu{
+    display: flex;
+    flex-direction: row;
+}
+.goods_menu view{
+    margin-left: 20rpx;
+}

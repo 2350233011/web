@@ -1,0 +1,40 @@
+<view class="body padding-sm">
+    <view class="flex body_title">
+        <view class="flex-sub">养殖户</view>
+        <!-- <view class="flex-sub">种类</view> -->
+        <view class="flex-sub">数量</view>
+        <view class="flex-sub">单价</view>
+        <view class="flex-sub">选择</view>
+    </view>
+    <view class="line"></view>
+    <checkbox-group bindchange="checkboxChange">
+        <block wx:for="{{slave_info}}" wx:for-index="indexs">
+            <view class="flex body_data">
+                <view class="flex-sub">{{item.name}}</view>
+                <!-- <view class="flex-sub">
+                    <picker bindchange="PickerChange" mode="selector" data-index="{{indexs}}" value="{{picker_array[indexs].index}}" range="{{picker_array[indexs].picker}}">
+                        <view class="picker">
+                            {{picker_array[indexs].index?picker_array[indexs].picker[picker_array[indexs].index]:'请选择'}}
+                        </view>
+                    </picker>
+                </view> -->
+                <view class="flex-sub">
+                    <input bindblur="getSurplusNumber" data-index="{{indexs}}" bindinput="getNumber" class="weui-input" type="number" placeholder="数量" />
+                </view>
+                <view class="flex-sub">
+                    <input bindblur="getSurplusPrice" data-index="{{indexs}}" bindinput="getPrice" class="weui-input" type="number" placeholder="单价" />
+                </view>
+                <view class="flex-sub">
+                    <checkbox value="{{indexs}}" class="blue round"></checkbox>
+                </view>
+            </view>
+        </block>
+    </checkbox-group>
+</view>
+<view class="body_bottom padding-sm">
+    <view class="flex margin">
+        <view class="flex-sub">已分配数量：{{number}}</view>
+        <view class="flex-sub">未分配数量：{{surplusnum}}</view>
+    </view>
+    <button class="cu-btn round bg-blue" bind:tap="confirm_allot">确认分配</button>
+</view>

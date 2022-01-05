@@ -1,0 +1,9 @@
+<view class="top">
+    <view class="result">
+        {{ sum }}
+        <text class="text">分</text>
+    </view>
+    <view class="tishi">交卷成功</view>
+</view>
+<view class="centre"></view>
+<view class="bottom" bindtap="to_situation">查看试卷详情 ></view>

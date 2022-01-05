@@ -1,0 +1,15 @@
+.subject {
+    height: 100%;
+    width: 100%;
+    padding-bottom: 50rpx;
+    margin-top: 20rpx;
+    margin-bottom: 50rpx;
+    background-color: white;
+}
+.auto_image{
+    display: flex;
+    justify-content:center;
+}
+.sub_image{
+    width: 95%;
+}

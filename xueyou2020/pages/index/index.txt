@@ -1,0 +1,241 @@
+<view class="container flex">
+    <view class="cu-bar search round" mark="搜索框">
+        <view class="search-form round">
+            <text class="cuIcon-search"></text>
+            <input type="text" style="position: relative;" placeholder="搜索课程、考试、题目" />
+        </view>
+        <view class="action">
+            <button class="cu-btn bg-green shadow-blur round">搜索</button>
+        </view>
+    </view>
+    <view class="nav round" mark="导航">
+        <view class="kecheng">
+            <icon class="cuIcon-cascades"></icon>
+            <text class="icon-type">课程</text>
+        </view>
+        <view class="means">
+            <icon class="cuIcon-read"></icon>
+            <text class="icon-type">学习资料</text>
+        </view>
+    </view>
+    <view class="hot-item" mark="热门专题">
+        <text>热门专题</text>
+        <view class="hot-item-img flex" wx:for="{{hotitem}}" wx:key="id">
+            <view class="img">
+                <image src="{{item.zt1}}"></image>
+            </view>
+            <view class="img">
+                <image src="{{item.zt2}}"></image>
+            </view>
+            <view class="img">
+                <image src="{{item.zt3}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="common" mark="常用功能">
+        <text class="com-use-text">常用功能</text>
+        <view class="common-item" wx:for="{{common}}" data-target="{{item.index}}" wx:key="id">
+            <view class="fun-type">
+                <view class="coach-main">
+                    <icon class="{{item.icontype}} icon-use"></icon>
+                    <text class="">{{item.typetext}}</text>
+                </view>
+                <icon class="cuIcon-right fr"></icon>
+            </view>
+        </view>
+    </view>
+    <view class="coach" mark="课程辅导">
+        <text class="coach-type-text">课程辅导</text>
+        <view class="coach-item" wx:for="{{coach}}" data-target="{{item.index}}" wx:key="id">
+            <view class="coach-img-view">
+                <image class="coach-img" src="{{item.coachimg}}"></image>
+            </view>
+            <view class="coach-text">
+                <text class="coach-title">{{item.coachtitle}}</text>
+                <text class="coach-subtitle">{{item.coachsubtitle}}</text>
+                <text class="coach-des">{{item.coachdes1}}</text>
+                <text class="coach-des">{{item.coachdes2}}</text>
+            </view>
+        </view>
+    </view>
+    <!-- ↓↓↓数据流区域↓↓↓ -->
+    <text class="advert-type-text">学习推荐</text>
+    <!-- ↓↓↓模板↓↓↓ -->
+    <template name="extend">
+        <view class="extend-img" wx:for="{{extend}}" wx:key="id">
+            <image class="extend-img-img" src="{{item.extendimg}}"></image>
+        </view>
+    </template>
+    <template name="video">
+        <view class="advert-video" mark="视频">
+            <view class="advert-video-main" wx:for="{{advertvideo}}" wx:key="id">
+                <text class="advert-video-title">{{item.videotitle}}</text>
+                <video class="advert-video-video" src="{{item.videosrc}}"></video>
+                <text class="advert-video-des">{{item.videodes}}</text>
+            </view>
+        </view>
+    </template>
+    <template name="advert">
+        <view class="advert" mark="学习推荐">
+            <view wx:for="{{advert}}" data-target="{{item.index}}" wx:key="id">
+                <view class="advert-user">
+                    <image class="advert-user-image round" src="{{item.userimg}}"></image>
+                    <text class="advert-user-name">{{item.username}}</text>
+                </view>
+                <view class="advert-title">
+                    <text class="advert-title-main">{{item.adverttitle}}</text>
+                    <text class="advert-title-des">{{item.advertdes1}}</text>
+                    <text class="advert-title-des">{{item.advertdes2}}</text>
+                </view>
+                <view class="advert-img-all">
+                    <image src="{{item.advertimg1}}" class="advert-img"></image>
+                    <image src="{{item.advertimg2}}" class="advert-img"></image>
+                    <image src="{{item.advertimg3}}" class="advert-img"></image>
+                </view>
+            </view>
+        </view>
+    </template>
+    <!-- ↓↓↓模板调用区↓↓↓ -->
+    <template is="extend" data="{{extend}}" />
+    <template is="advert" data="{{advert}}" />
+    <!-- <template is="video" data="{{advertvideo}}" />
+    <template is="video" data="{{advertvideo}}" /> -->
+    <template is="extend" data="{{extend}}" />
+    <!-- <template is="video" data="{{advertvideo}}" /> -->
+    <template is="advert" data="{{advert}}" />
+    <!-- ↓↓↓container的结束标志↓↓↓ -->
+</view>
+<!-- ↑↑↑container的结束标志↑↑↑ -->
+<view style="height:100rpx;" marl="留空"></view>
+<!-- 模态框 -->
+<view class="cu-modal {{modalName=='Image'?'show':''}}" catchtouchmove='filterViewMove'>
+    <view class="cu-dialog">
+        <view class="bg-img Ranking_List" style="background-image: url('images/index/ranking/modal.png')">
+            <view class="cu-bar justify-end text-white">
+                <view class="action" bindtap="hideModal">
+                    <text class="cuIcon-close"></text>
+                </view>
+            </view>
+            <view style="height:230rpx"></view>
+            <view class="ranking0 flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-twice">纠错排行榜</view>
+                <view class="flex-sub">账号</view>
+                <view class="flex-sub">姓名</view>
+                <view class="flex-twice">学校</view>
+                <view class="flex-sub">纠错</view>
+            </view>
+            <view class="ranking1 flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-sub one">
+                    <image src="/images/index/ranking/1.png" />
+                </view>
+                <view class="flex-twice">156****6178</view>
+                <view class="flex-sub">张三</view>
+                <view class="flex-twice">济南市体校</view>
+                <view class="flex-sub">13</view>
+            </view>
+            <view class="ranking flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-sub ranking_img">
+                    <image src="/images/index/ranking/2.png" />
+                </view>
+                <view class="flex-twice">156****6178</view>
+                <view class="flex-sub">李四</view>
+                <view class="flex-twice">淄博市体校</view>
+                <view class="flex-sub">10</view>
+            </view>
+            <view class="ranking flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-sub ranking_img">
+                    <image src="/images/index/ranking/3.png" />
+                </view>
+                <view class="flex-twice">156****6178</view>
+                <view class="flex-sub">王五</view>
+                <view class="flex-twice">潍坊市体校</view>
+                <view class="flex-sub">9</view>
+            </view>
+            <view class="ranking flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-sub ranking_img">
+                    <image src="/images/index/ranking/4.png" />
+                </view>
+                <view class="flex-twice">156****6178</view>
+                <view class="flex-sub">赵六</view>
+                <view class="flex-twice">青岛市体校</view>
+                <view class="flex-sub">8</view>
+            </view>
+            <view class="ranking flex p-xs margin-bottom-sm mb-sm ranking_center">
+                <view class="flex-sub ranking_img">
+                    <image src="/images/index/ranking/5.png" />
+                </view>
+                <view class="flex-twice">156****6178</view>
+                <view class="flex-sub">张三</view>
+                <view class="flex-twice">临沂市体校</view>
+                <view class="flex-sub">7</view>
+            </view>
+        </view>
+        <view class="cu-bar bg-white">
+            <view class="action margin-0 flex-sub  solid-left" bindtap="to_ranking">查看更多</view>
+        </view>
+    </view>
+</view>
+
+//js部分
+hotitem: [{
+            zt1: "http://www.wywywy.cn/img/zt1.jpg",
+            zt2: "http://www.wywywy.cn/img/zt2.jpg",
+            zt3: "http://www.wywywy.cn/img/zt3.png",
+        }],
+        common: [{
+            icontype: "cuIcon-home",
+            typetext: "我的作业1",
+            index: 1,
+        },
+        {
+            icontype: "cuIcon-cascades",
+            typetext: "我的作业2",
+            index: 2,
+        },
+        {
+            icontype: "cuIcon-home",
+            typetext: "我的作业3",
+            index: 3,
+        }
+
+        ],
+        coach: [{
+            coachimg: "http://www.wywywy.cn/img/coach.jpg",
+            coachtitle: "饶老师·三分钟教你会截图",
+            coachsubtitle: "学好数理化，走遍天下都不怕",
+            coachdes1: "国家特级教师、10年奥赛培训经验",
+            coachdes2: "国家特级教师、20年奥赛培训经验",
+            index: 1,
+        },
+        {
+            coachimg: "http://www.wywywy.cn/img/coach.jpg",
+            coachtitle: "饶老师·三分钟教你会截图",
+            coachsubtitle: "学好数理化，走遍天下都不怕",
+            coachdes1: "国家特级教师、10年奥赛培训经验",
+            coachdes2: "国家特级教师、20年奥赛培训经验",
+            index: 2,
+        },
+
+        ],
+        advert: [{
+            userimg: "http://www.wywywy.cn/img/userimg.png",
+            username: "教育平台官方推荐",
+            adverttitle: " 杨兴坤 |  政治制度与当代中国政治制度",
+            advertdes1: "课程简介： 本课程是政治学等专业的基础课，也是高等学",
+            advertdes2: "校通识课。课程讲解人民代表大会制度、国家行政...",
+            advertimg1: "https://api.dujin.org/bing/1920.php",
+            advertimg2: "https://api.dujin.org/bing/1920.php",
+            advertimg3: "https://api.dujin.org/bing/1920.php",
+            index: 1,
+        },
+        ],
+        advertvideo: [{
+            videotitle: "【洛镔英语】2021高考英语超实用提分攻略",
+            videosrc: "https://stream7.iqilu.com/10339/upload_transcode/202002/18/202002181038474liyNnnSzz.mp4",
+            videodes: "新浪教育  235评论  41分钟前",
+        }],
+        extend: [{
+            extendimg: "http://www.wywywy.cn/img/356.png",
+            index: 0,
+        }
+        ],

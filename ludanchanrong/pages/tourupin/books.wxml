@@ -1,0 +1,91 @@
+<scroll-view scroll-x class="bg-white nav text-center operation">
+    <view class="cu-item {{TopIndex == 0 ? 'conduct':''}} " bindtap='changstyle' data-index="0">
+        收入
+    </view>
+    <view class="cu-item {{TopIndex == 1 ? 'conduct':''}} " bindtap='changstyle' data-index="1">
+        投入品
+    </view>
+</scroll-view>
+<view wx:if="{{TopIndex == 0}}" class="clarify_bottom">
+    <view class="cu-timeline">
+        <view class="cu-time">2021-04</view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex pastbuy_data_books">
+                    <text class="flex-treble">养殖费用|订单号123456789-1</text>
+                    <text class="flex-sub gengduo">+6000元</text>
+                </view>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex pastbuy_data_books">
+                    <text class="flex-treble">养殖费用|订单号123456789-2</text>
+                    <text class="flex-sub gengduo">+6000元</text>
+                </view>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex pastbuy_data_books">
+                    <text class="flex-treble">养殖费用|订单号123456789-3</text>
+                    <text class="flex-sub gengduo">+6000元</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="cu-timeline">
+        <view class="cu-time">2021-03</view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex pastbuy_data_books">
+                    <text class="flex-treble">养殖费用|订单号123456789-1</text>
+                    <text class="flex-sub gengduo">+6000元</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="cu-timeline">
+        <view class="cu-time">2021-02</view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex pastbuy_data_books">
+                    <text class="flex-treble">养殖费用|订单号123456789-1</text>
+                    <text class="flex-sub gengduo">+6000元</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view wx:if="{{ TopIndex == 1 }}">
+    <view class="cu-timeline">
+        <view class="cu-time">2021-04</view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex pastbuy_data_books">
+                    <text class="flex-treble">鸡饲料100KG|投入品商A</text>
+                    <text class="flex-sub gengduo">x10</text>
+                </view>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex pastbuy_data_books">
+                    <text class="flex-treble">鸡饲料100KG|投入品商A</text>
+                    <text class="flex-sub gengduo">x20</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="cu-timeline">
+        <view class="cu-time">2021-03</view>
+        <view class="cu-item">
+            <view class="content">
+                <view class="flex pastbuy_data_books">
+                    <text class="flex-treble">鸡饲料100KG|投入品商A</text>
+                    <text class="flex-sub gengduo">x10</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

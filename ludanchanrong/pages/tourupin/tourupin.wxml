@@ -1,0 +1,92 @@
+<wxs src="../../utils/change.wxs" module="app"></wxs>
+<view class="message">
+    <view class="flex message_top">
+        <view class="flex-sub headimg" bind:tap="to_user">
+            <image src="{{userinfo.avatarUrl}}" />
+        </view>
+        <view class="flex-treble message_money">
+            <view class="money_title">我的账本</view>
+            <view class='to_view' bindtap='to_lines'>查看明细</view>
+        </view>
+        <view class="flex-sub message_data">
+            <text class="cuIcon-message text-white" data-type="yangzhihu" bind:tap="to_message"></text>
+        </view>
+    </view>
+</view>
+<view class="body">
+    <view class="body_margin body_theorder">
+        <view class="flex _title">
+            <view class="flex-treble">我的订单</view>
+            <view class="flex-sub gengduo" data-type="inputs" bind:tap="to_detail">
+                <text>更多 ></text>
+            </view>
+        </view>
+        <view class="theorder_data">
+            <block wx:for="{{order_info}}">
+                <view class="data_top">
+                    <view class="data_body">
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius">
+                                <text class="cuIcon-shop lg text-blue"></text>
+                                {{item.shopName}}
+                            </view>
+                            <view class="radius">
+                                订单状态:{{app.toFind(states,"id",item.state,"name")}}
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <view data-id="{{item.id}}" data-index="{{index}}" data-state="{{item.state}}" bindtap="toOrderDetail">
+                            <view class="flex padding pastbuy">
+                                <view class="flex-sub pastbuy_img">
+                                    <image src="{{item.itemPic}}" />
+                                </view>
+                                <view class="flex-twice theorder_title">
+                                    <view class="limitLine2">{{item.itemName}}</view>
+                                    <view class="text-gray text-sm">{{item.skuName}}</view>
+                                </view>
+                                <view class="flex-twice pastbuy_data">
+                                    <view>
+                                        定单金额:
+                                        <text>￥{{item.unitprice}}</text>
+                                    </view>
+                                    <view>
+                                        定单数量:
+                                        <text>X {{item.quantity}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="receiving">
+                                <view class="flex">
+                                    <view class="flex-sub">收货人:</view>
+                                    <view class="flex-treble">{{item.consigneeName}}</view>
+                                </view>
+                                <view class="flex">
+                                    <view class="flex-sub">联系方式:</view>
+                                    <view class="flex-treble">{{item.consigneeMobile}}</view>
+                                </view>
+                                <view class="flex">
+                                    <view class="flex-sub">收货地址:</view>
+                                    <view class="flex-treble">{{item.consigneeAddress}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="line"></view>
+                        <view class="flex padding-sm justify-between clarify_top">
+                            <view class="radius">
+                                总金额￥{{item.allunitprice}}
+                                实付款￥
+                                <text class="text-xxl text-red">{{item.allunitprice}}</text>
+                            </view>
+                            <view class="radius">
+                                <button class="cu-btn round bg-blue" data-id="{{item.id}}" data-index="{{index}}" bind:tap="supply">
+                                    确认发货
+                                </button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+<view class="bottom"></view>

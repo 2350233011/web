@@ -1,0 +1,188 @@
+.shop_top {
+    background-color: white;
+    padding: 20rpx;
+}
+
+.shop_logo {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid gainsboro;
+}
+
+.shop_body_menu {
+    background-color: white;
+    padding: 10rpx;
+    margin-top: 10rpx;
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.collect {
+    border: 1rpx solid #1e90ff;
+    width: 100rpx;
+    font-size: 24rpx;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.gotop {
+    position: absolute;
+    top: 85%;
+    left: 85%;
+}
+
+.gotop text {
+    font-size: 40rpx;
+    font-weight: 800;
+    padding: 20rpx;
+    background-color: white;
+    border-radius: 50%;
+    border: 1rpx solid gainsboro;
+}
+
+.input_data {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.input_datas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 20rpx 20rpx 20rpx;
+}
+
+.goods {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10rpx;
+    background-color: white;
+    /* max-height: 0rpx; */
+    margin: 20rpx auto 0;
+}
+
+.goods image {
+    height: 270rpx;
+    width: 270rpx;
+    border-radius: 10rpx;
+    object-fit: cover;
+}
+
+.goods text {
+    width: 270rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Firefox */
+    display: -moz-box;
+    -moz-line-clamp: 1;
+    -moz-box-orient: vertical;
+    /* Safari、Opera、Chrome */
+    display: -webkit-box;
+    /* 盒子垂直对齐 */
+    -webkit-box-orient: vertical;
+    /* 两行 */
+    -webkit-line-clamp: 2;
+}
+
+.shop_class {
+    background-color: white;
+    border-radius: 10rpx;
+    margin: 20rpx;
+    padding: 20rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.shop_class .class_name {
+    width: 90%;
+}
+
+.shop_class .cuIcon-right {
+    width: 8%;
+    text-align: center;
+}
+
+.input_menu {
+    min-width: 200rpx;
+    text-align: center;
+    /* border-right: 2px solid gainsboro; */
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    overflow: hidden;
+    /* margin-top: 20rpx; */
+}
+
+.menu {
+    min-height: 80rpx;
+    /* line-height: 80rpx; */
+    padding: 0 20rpx;
+    padding-top: 20rpx;
+    font-size: 26rpx;
+    word-break: break-all;
+    /* Firefox */
+    display: -moz-box;
+    -moz-line-clamp: 1;
+    -moz-box-orient: vertical;
+    /* Safari、Opera、Chrome */
+    display: -webkit-box;
+    /* 盒子垂直对齐 */
+    -webkit-box-orient: vertical;
+    /* 两行 */
+    -webkit-line-clamp: 2;
+}
+
+.inputs_but {
+    /* margin: 0 auto; */
+    /* overflow: hidden; */
+    /* height: 120rpx; */
+    /* padding: 20rpx; */
+    background-color: white;
+    border-top: 1px solid gainsboro;
+    margin-bottom: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputs_but .cu-btn {
+    width: 100%;
+}
+
+.kind_datas{
+    height: 50rpx;
+}
+
+.kind_data {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    overflow: hidden;
+    background-color: white;
+}
+
+.kinds {
+    padding: 20rpx;
+    /* width: 100%; */
+
+}
+
+.kinds3{
+    padding:0 20rpx;
+    border: 1rpx solid gainsboro;
+    padding: 10rpx 20rpx;
+    border-radius: 10rpx;
+    max-width: 450rpx;
+    margin-right: 20rpx;
+}
+
+.color_gray{
+    color: gray;
+    border: 1rpx solid gray;
+}

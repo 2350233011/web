@@ -1,0 +1,25 @@
+<wxs src="../../utils/index.wxs" module="app"></wxs>
+<view class="subject" wx:for="{{ subject }}" wx:for-index="index" wx:key="id">
+    <view class="flex solid-bottom padding align-start">单选题({{ item.questionScore }}分)</view>
+    <view class="flex solid-bottom padding align-start">
+        {{item.sn}}.
+        <parser html="{{item.btQuestion.name}}" />
+    </view>
+    <view wx:for="{{ item.btQuestion.btAnswerItemList }}" wx:key="id" wx:for-item="items">
+        <view class="flex solid-bottom padding align-start selects {{ items.topIndex == 1 && items.isRight == 0 ? 'error':'' }} {{ app.indexOf(item.btQuestion.btAnswerItemList,'topIndex',1) && items.isRight == 1 ? 'select':'' }} {{items.topIndex == 1 ? 'select':''}}">
+            {{ app.conversion(items.sn) }}：
+            <parser html="{{items.answeritem}}" />
+        </view>
+    </view>
+    <view class="answer">
+        正确答案 {{ app.conversion(app.findIndex(item.btQuestion.btAnswerItemList,"isRight",1)) }}
+        您的答案{{ app.conversion(app.findIndex(item.btQuestion.btAnswerItemList,"id",item.selectOption)) }}
+    </view>
+</view>
+<!-- 占位 -->
+<view class="placeholder"></view>
+<view class="cu-bar btn-group exam_btn_group">
+    <button bindtap='return' data-target="DialogModal1" class="cu-btn bg-green shadow-blur">
+        返回
+    </button>
+</view>

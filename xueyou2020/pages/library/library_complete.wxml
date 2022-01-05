@@ -1,0 +1,130 @@
+<wxs src="../../utils/index.wxs" module="app"></wxs>
+<!-- 头部 -->
+<view wx:if="{{ show }}">
+    <scroll-view scroll-x class="bg-white nav">
+        <view class="flex text-center">
+            <view class="cu-item flex-sub">
+                <!-- <text class="cuIcon-time lg text-gray">{{ exam_time }}</text> -->
+            </view>
+            <view class="cu-item flex-sub" bindtap="showModal" data-target="bottomModal">
+                {{ total }}/{{ totals }}
+            </view>
+            <view class="cu-item flex-sub"></view>
+        </view>
+    </scroll-view>
+    <view class="subject" wx:for="{{ subject }}" wx:for-index="index" wx:key="id" wx:if="{{ sn[subject_id-1] == item.sn }}">
+        <view wx:if="{{ item.isFinish == 0 }}">
+            <view wx:if="{{ item.type == '1' }}">
+                <view class="flex solid-bottom padding align-start justify-between">
+                    <view>单选题</view>
+                    <view bindtap="correct_error" data-target="DialogModal1">纠错</view>
+                </view>
+                <view class="flex solid-bottom padding align-start">
+                    <!-- {{ item.sn }} -->
+                    <parser html="{{item.name}}" />
+                </view>
+                <view wx:for="{{ item.option }}" wx:key="id" wx:for-item="items">
+                    <view class="flex solid-bottom padding align-start selects {{ items.topIndex == 1 && app.indexOf(answer,'sn',item.sn) && app.indexOf2(is_show,item.sn) && answer[app.findIndex3(answer,'sn',item.sn)].is_right == 0 ? 'error':'' }} {{items.topIndex == 1  ? 'select':''}} {{ app.indexOf(answer,'sn',item.sn) && app.indexOf2(is_show,item.sn) && answer[app.findIndex3(answer,'sn',item.sn)].rightAnswer == items.sn ? 'select':'' }}" bindtap="{{ app.indexOf(answer,'sn',item.sn) && app.indexOf2(is_show,item.sn) ? '':'radio_click' }}" data-name="{{ items.sn }}">
+                        {{ app.conversion(items.sn) }}：
+                        <parser html="{{items.answeritem}}" />
+                    </view>
+                </view>
+                <view class="answer" wx:if="{{ app.indexOf(answer,'question',item.id) && app.indexOf2(is_show,item.sn) }}">
+                    正确答案 {{ app.conversion(app.findIndex(item.option,"isRight",1)) }}
+                您的答案{{ app.conversion(answer[app.findIndex3(answer,'question',item.id)].selectOption) }}
+                </view>
+            </view>
+            <view wx:elif="{{ item.type == '2' }}">
+                <view class="flex solid-bottom padding align-start justify-between">
+                    <view>多选题</view>
+                    <view bindtap="correct_error" data-target="DialogModal1">纠错</view>
+                </view>
+                <view class="flex solid-bottom padding align-start">
+                    <parser html="{{item.name}}" />
+                </view>
+                <view wx:for="{{ item.option }}" wx:key="id" wx:for-item="items">
+                    <view class="flex solid-bottom padding align-start selects {{ items.topIndex == 1 && app.indexOf(answer,'sn',item.sn) && app.indexOf2(is_show,item.sn) && items.isRight == 0 ? 'error':'' }} {{ app.indexOf(answer,'sn',item.sn) && app.indexOf2(is_show,item.sn) && items.isRight == 1 ? 'select':'' }} {{items.topIndex == 1  ? 'select':''}}" bindtap="{{ app.indexOf(answer,'question',item.sn) && app.indexOf2(is_show,item.sn) ? '':'checkbox_click' }}" data-name="{{ items.sn }}">
+                        {{ app.conversion(items.sn) }}：
+                        <parser html="{{items.answeritem}}" />
+                    </view>
+                </view>
+                <view class="answer" wx:if="{{ app.indexOf(answer,'question',item.id) && app.indexOf2(is_show,item.sn) }}">
+                    正确答案 {{ app.conversion(app.findIndex2(item.option,"isRight",1)) }}
+                您的答案 {{ app.conversion(app.findIndex2(item.option,"id",answer[app.findIndex3(answer,'question',item.id)].select_option)) }}
+                </view>
+            </view>
+        </view>
+        <view wx:else>
+            <view wx:if="{{ item.type == '1' }}">
+                <view class="flex solid-bottom padding align-start justify-between">
+                    <view>单选题</view>
+                    <view bindtap="correct_error" data-target="DialogModal1">纠错</view>
+                </view>
+                <view class="flex solid-bottom padding align-start">
+                    <!-- {{ item.sn }} -->
+                    <parser html="{{item.name}}" />
+                </view>
+                <view wx:for="{{ item.option }}" wx:key="id" wx:for-item="items">
+                    <view class="flex solid-bottom padding align-start selects {{ items.topIndex == 1 && app.indexOf(answer,'question',item.id) && app.indexOf2(is_show,item.sn) && items.isRight == 0 ? 'error':'' }} {{items.topIndex == 1  ? 'select':''}} {{ app.indexOf(answer,'question',item.id) && app.indexOf2(is_show,item.sn) && items.isRight == 1 ? 'select':'' }}">
+                        {{ app.conversion(items.sn) }}：
+                        <parser html="{{items.answeritem}}" />
+                    </view>
+                </view>
+                <view class="answer" wx:if="{{ app.indexOf(answer,'question',item.id) && app.indexOf2(is_show,item.sn) }}">
+                    正确答案 {{ app.conversion(app.findIndex(item.option,"isRight",1)) }}
+                您的答案{{ app.conversion(app.findIndex(item.option,"id",answer[app.findIndex3(answer,'question',item.id)].selectOption)) }}
+                </view>
+            </view>
+            <view wx:elif="{{ item.type == '2' }}">
+                <view class="flex solid-bottom padding align-start justify-between">
+                    <view>多选题</view>
+                    <view bindtap="correct_error" data-target="DialogModal1">纠错</view>
+                </view>
+                <view class="flex solid-bottom padding align-start">
+                    <parser html="{{item.name}}" />
+                </view>
+                <view wx:for="{{ item.option }}" wx:key="id" wx:for-item="items">
+                    <view class="flex solid-bottom padding align-start selects {{ items.topIndex == 1 && app.indexOf(answer,'question',item.id) && app.indexOf2(is_show,item.sn) && items.isRight == 0 ? 'error':'' }} {{ app.indexOf(answer,'question',item.id) && app.indexOf2(is_show,item.sn) && items.isRight == 1 ? 'select':'' }} {{items.topIndex == 1  ? 'select':''}}">
+                        {{ app.conversion(items.sn) }}：
+                        <parser html="{{items.answeritem}}" />
+                    </view>
+                </view>
+                <view class="answer" wx:if="{{ app.indexOf(answer,'question',item.id) && app.indexOf2(is_show,item.sn) }}">
+                    正确答案{{ app.conversion(app.findIndex2(item.option,"isRight",1)) }}
+                您的答案{{ app.conversion(app.findIndex2(item.option,"id",answer[app.findIndex3(answer,'question',item.id)].selectOption)) }}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="height: 110rpx;" class="flex justify-center">
+        <view class="padding-sm margin-xs" wx:if="{{ tips !== null }}">{{ tips }}</view>
+    </view>
+    <view class="cu-bar btn-group exam_btn_group">
+        <button bindtap='subject_switch' data-type="top" class="cu-btn text-green line-green shadow">
+            上一题
+        </button>
+        <button bindtap='subject_switch' data-type="bottom" class="cu-btn bg-green shadow-blur">
+            下一题
+        </button>
+    </view>
+    <!-- 模态框 -->
+    <view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+        <view class="cu-dialog">
+            <view class="cu-bar bg-white justify-end">
+                <view class="content">内容</view>
+                <view class="action" bindtap="hideModal">
+                    <text class="cuIcon-close text-red"></text>
+                </view>
+            </view>
+            <view class="section">
+                <textarea bindinput="bindTextAreaBlur" placeholder="请输入内容" maxlength="-1" adjust-position="true" />
+            </view>
+            <view class="cu-bar bg-white justify-end">
+                <view class="action">
+                    <button class="cu-btn line-green text-green" bindtap="remove_error">取消</button>
+                    <button class="cu-btn bg-green margin-left" bindtap="submit_error">确定</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

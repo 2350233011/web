@@ -1,0 +1,170 @@
+.body_top {
+  /* margin-top: 4rpx; */
+  background-color: white;
+  padding: 10rpx;
+}
+
+.cu-bar .search-form {
+  margin: 20rpx;
+  /* margin-right: 10rpx; */
+}
+
+.input_data {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.input_datas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 10rpx;
+  width: 90%;
+  margin: 20rpx auto;
+}
+
+.menu {
+  min-height: 80rpx;
+  /* line-height: 80rpx; */
+  padding: 0 20rpx;
+  padding-top: 20rpx;
+  font-size: 26rpx;
+  word-break: break-all;
+  /* Firefox */
+  display: -moz-box;
+  -moz-line-clamp: 1;
+  -moz-box-orient: vertical;
+  /* Safari、Opera、Chrome */
+  display: -webkit-box;
+  /* 盒子垂直对齐 */
+  -webkit-box-orient: vertical;
+  /* 两行 */
+  -webkit-line-clamp: 2;
+}
+
+.padding {
+  padding: 10rpx 30rpx;
+}
+
+.stiltle {
+  font-size: 24rpx;
+}
+
+.goods {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10rpx;
+  background-color: white;
+  max-height: 480rpx;
+  margin: 10rpx auto;
+}
+
+.goods image {
+  height: 250rpx;
+  width: 250rpx;
+  border-radius: 10rpx;
+  object-fit: cover;
+}
+
+.goods text {
+  width: 250rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Firefox */
+  display: -moz-box;
+  -moz-line-clamp: 1;
+  -moz-box-orient: vertical;
+  /* Safari、Opera、Chrome */
+  display: -webkit-box;
+  /* 盒子垂直对齐 */
+  -webkit-box-orient: vertical;
+  /* 两行 */
+  -webkit-line-clamp: 2;
+}
+
+.gotop {
+  position: absolute;
+  top: 80%;
+  left: 80%;
+}
+
+.gotop text {
+  font-size: 40rpx;
+  font-weight: 800;
+  padding: 20rpx;
+  background-color: white;
+  border-radius: 50%;
+  border: 1rpx solid gainsboro;
+}
+
+.select_box {
+  background: #fff;
+  width: 80%;
+  margin: 30rpx auto;
+  position: relative;
+}
+
+.select {
+  width: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.option_box {
+  position: absolute;
+  top: 50rpx;
+  left: -10rpx;
+  width: 100rpx;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+  z-index: 9999999;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.border_show {
+  border: 1px solid gainsboro;
+}
+
+.option {
+  width: 100%;
+  height: 60rpx;
+}
+
+.shop_top {
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  background-color: white;
+  padding: 20rpx;
+}
+
+.shop_logo {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid gainsboro;
+}
+
+.shop_body_menu {
+  background-color: white;
+  padding: 10rpx;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}
+
+.collect {
+  border: 1rpx solid #1e90ff;
+  width: 100rpx;
+  font-size: 24rpx;
+  text-align: center;
+  margin: 0 auto;
+}

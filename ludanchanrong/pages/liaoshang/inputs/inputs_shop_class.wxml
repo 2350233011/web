@@ -1,0 +1,22 @@
+<block wx:if="{{inputs_info.lenght > 0}}">
+    <view class="basis-xl input_data">
+        <!-- bindscrolltolower="get_threeClassifications" -->
+        <scroll-view scroll-y="true" scroll-top='{{topNum}}' bindscroll="scrolltoupper" enhanced="true" data-type="add" enable-back-to-top="true" style="flex: 1;height: 1px;">
+            <view class="input_datas">
+                <block wx:for="{{inputs_info}}" wx:key="id">
+                    <!-- wx:if="{{item.cid == kind[TopIndex-1].cid || TopIndex == 0}}" -->
+                    <view class="padding goods" bind:tap="to_inputs_detail" data-skuid="{{item.skuId}}" data-itemid="{{item.itemId}}">
+                        <!-- <text class="stiltle">{{item.shopName}}</text> -->
+                        <image src="{{item.picUrl}}" />
+                        <text>{{item.itemName}}</text>
+                        <text class="text-red">￥{{item.skuPrice}}</text>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="gotop" hidden='{{!cangotop}}' catchtap="goTop">
+        <text class="cuIcon-top text-gray"></text>
+    </view>
+</block>
+<block wx:else><view class="text-center padding margin">暂无产品</view></block>

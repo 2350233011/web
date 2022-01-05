@@ -1,0 +1,42 @@
+function change(arr) {
+    if (arr) {
+        var arrs
+        if (typeof arr == "object") {
+            arrs = arr.toString();
+        } else {
+            arrs = arr
+        }
+        var str = arrs.split(',');
+        for (var i = 0; i < str.length; i++) {
+            switch (str[i]) {
+                case "liaoshang":
+                    str[i] = "料商"
+                    break;
+                case "yangzhihu":
+                    str[i] = "养殖户"
+                    break;
+                case "tourupinshang":
+                    str[i] = "投入品"
+                    break;
+                case "tuzaichang":
+                    str[i] = "屠宰场"
+                    break;
+            }
+        }
+        return str;
+    }
+}
+//寻找数组中指定key = value的对象的str元素值
+function toFind(arr, key, value, str) {
+    if (arr) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i][key] == value) {
+                return arr[i][str]
+            }
+        }
+    }
+}
+
+module.exports.change = change
+module.exports.toFind = toFind
+

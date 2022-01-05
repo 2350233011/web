@@ -1,0 +1,46 @@
+.body {
+    padding: 20rpx;
+    background-color: white;
+}
+
+.gengduo text {
+    color: gray;
+    font-size: 24rpx;
+}
+
+.gengduo textarea {
+    height: 150rpx;
+    width: 100%;
+}
+
+.body_data {
+    padding: 40rpx;
+}
+
+.margin_body {
+    margin: 20rpx;
+}
+
+.color {
+    background-color: #1e90ff;
+}
+
+.line {
+    background-color: #dcdcdc86;
+}
+
+.inputs_but {
+    padding: 20rpx;
+    background-color: white;
+    border-top: 1px solid gainsboro;
+    margin-bottom: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.inputs_but .cu-btn {
+    width: 100%;
+}
