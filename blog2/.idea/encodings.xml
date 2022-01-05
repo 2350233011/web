@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/.env" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Http/Controllers/Home/ArticleController.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config/app.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/rili/easyui.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/home/public/footjs.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/home/public/navmenu.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/home/public/script.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/home/public/signin.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/home/public/styles.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/home/zhongxin.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vendor/phpunit/php-code-coverage/src/Report/Html/Facade.php" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>
